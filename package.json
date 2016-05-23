@@ -1,0 +1,26 @@
+{
+  "name": "t-minus",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": ["countdown"],
+  "main": "index.js",
+  "engines": {
+    "node": "5.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dlindahl/t-minus.git"
+  },
+  "author": "Derek Lindahl",
+  "contributors": [
+    "Derek Lindahl"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dlindahl/t-minus/issues"
+  },
+  "homepage": "https://github.com/dlindahl/t-minus#readme"
+}
