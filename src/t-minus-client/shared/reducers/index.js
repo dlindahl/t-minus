@@ -1,3 +1,5 @@
-import stopwatch from './StopwatchReducer';
+import clock from './ClockReducer';
+import display from './DisplayReducer';
 
-export { stopwatch as stopwatch };
+export { clock as clock };
+export { display as display };
