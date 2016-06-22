@@ -1,7 +1,7 @@
 import AppFooter from './AppFooter';
-import AppHeader from './AppHeader';
-import AppNav from './AppNav';
+import ClockNav from '../Navigation/ClockNav';
 import Colors from '../../../shared/constants/Colors';
+import DisplayNav from '../Navigation/DisplayNav';
 import { PropTypes } from 'react';
 
 const baseStyles = {
@@ -10,9 +10,6 @@ const baseStyles = {
     flex: 1,
     flexDirection: 'column',
     height: '100vh'
-  },
-  appNav: {
-    width: 50
   },
   header: {
     padding: 15
@@ -27,9 +24,9 @@ const baseStyles = {
 
 const Layout = (props) => (
   <div style={baseStyles.root}>
-    <AppNav style={baseStyles.appNav}/>
+    <ClockNav direction="column"/>
     <div style={baseStyles.app}>
-      <AppHeader/>
+      <DisplayNav/>
       <main style={baseStyles.main}>
         {props.children}
       </main>

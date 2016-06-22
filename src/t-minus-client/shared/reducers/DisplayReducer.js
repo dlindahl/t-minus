@@ -2,6 +2,7 @@ import assign from 'lodash/assign';
 import ClockActions from '../actionTypes/ClockActionTypes';
 import inRange from 'lodash/inRange';
 import padStart from 'lodash/padStart';
+import PresenterActions from '../actionTypes/PresenterActionTypes';
 import TimerSeverity from '../actionTypes/TimerSeverityTypes';
 
 const DefaultSeverity = TimerSeverity.TIMER_SEVERITY_CALM;
@@ -87,6 +88,8 @@ export default function display(state = initialState(), action) {
         mode: state.mode,
         timerValue: state.timerValue
       });
+    case PresenterActions.PRESENTER_STATE_CHANGED:
+      return assign({}, payload.display);
     default:
       return state;
   }

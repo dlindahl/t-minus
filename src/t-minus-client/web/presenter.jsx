@@ -1,4 +1,4 @@
-import ClientHandler from './components/Handlers/ClientHandler';
+import PresenterHandler from './components/Handlers/PresenterHandler';
 import * as initializers from '../shared/initializers';
 import { runInitializers } from '../shared/util/initializerHelper';
 import { Provider } from 'react-redux';
@@ -9,7 +9,7 @@ const appEl = document.getElementById('app');
 runInitializers(initializers, store);
 Render(
   <Provider store={store}>
-    <ClientHandler/>
+    <PresenterHandler/>
   </Provider>
   , appEl
 );

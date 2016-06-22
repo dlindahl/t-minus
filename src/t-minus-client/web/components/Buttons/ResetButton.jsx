@@ -5,15 +5,11 @@ import { connect } from 'react-redux';
 import AutoRenew from 'react-icons/lib/md/autorenew';
 import { resetClock } from '../../../shared/actions/ClockActions';
 
-function getState(state) {
-  return {};
-}
-
 function getActions(dispatch) {
   return bindActionCreators({ resetClock }, dispatch);
 }
 
-@connect(getState, getActions)
+@connect(null, getActions)
 export default class ResetButton extends Component {
   constructor(props) {
     super(props);

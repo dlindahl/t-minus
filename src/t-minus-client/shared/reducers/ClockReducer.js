@@ -1,5 +1,6 @@
 import assign from 'lodash/assign';
 import ClockActions from '../actionTypes/ClockActionTypes';
+import PresenterActions from '../actionTypes/PresenterActionTypes';
 import TimerSeverity from '../actionTypes/TimerSeverityTypes';
 
 function initialState() {
@@ -55,6 +56,8 @@ export default function clock(state = initialState(), action) {
         lastTick: performance.now(),
         running: true
       });
+    case PresenterActions.PRESENTER_STATE_CHANGED:
+      return assign({}, payload.clock);
     default:
       return state;
   }

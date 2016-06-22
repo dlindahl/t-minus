@@ -15,6 +15,14 @@ var Entries = {
     development: [
       'webpack-hot-middleware/client'
     ]
+  },
+  presenter: {
+    default: [
+      path.join(env.get('sourcePath'), 'web', 'presenter')
+    ],
+    development: [
+      'webpack-hot-middleware/client'
+    ]
   }
 };
 
@@ -58,6 +66,7 @@ config = {
   devtool: 'eval',
   entry: {
     client: defineEnvSpecific(Entries.client, env.get('env')),
+    presenter: defineEnvSpecific(Entries.presenter, env.get('env'))
   },
   output: {
     path: env.get('distPath'),

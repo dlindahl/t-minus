@@ -1,6 +1,6 @@
 import assign from 'lodash/assign';
 import Colors from '../../../shared/constants/Colors';
-import { PropTypes } from 'react';
+import { Children, cloneElement, PropTypes } from 'react';
 
 const baseStyles = {
   active: {
@@ -12,6 +12,14 @@ const baseStyles = {
       color: Colors.Clouds,
       background: Colors.WetAsphalt
     }
+  },
+  disabled: {
+    [true]: {
+      color: Colors.WetAsphalt
+    }
+  },
+  icon: {
+    verticalAlign: 'top'
   },
   root: {
     background: 'purple',
@@ -25,21 +33,37 @@ const baseStyles = {
   }
 };
 
-const AppNavButton = (props) => (
-  <button
-    {...props}
-    style={assign({}, baseStyles.root, baseStyles.active[props.active], props.style)}
-  >
-    {props.children}
-  </button>
-);
+function iconize(node) {
+  return cloneElement(node, { style: baseStyles.icon });
+}
+
+const AppNavButton = (props) => {
+  return (
+    <button
+      {...props}
+      style={
+        assign(
+          {},
+          baseStyles.root,
+          baseStyles.active[props.active],
+          baseStyles.disabled[props.disabled],
+          props.style
+        )
+      }
+    >
+      {Children.map(props.children, iconize)}
+    </button>
+  );
+}
 
 AppNavButton.propTypes = {
   active: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  disabled: PropTypes.bool
 };
 AppNavButton.defaultProps = {
-  active: false
+  active: false,
+  disabled: false
 };
 
 export default AppNavButton;
