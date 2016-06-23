@@ -3,7 +3,7 @@ import { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import PresenterLayout from '../Layout/PresenterLayout';
 import { presenterReady } from '../../../shared/actions/PresenterActions';
-import ResetButton from '../Buttons/ResetButton';
+import Teleprompter from '../Teleprompter/Teleprompter';
 import TimeDisplay from '../TimeDisplay/TimeDisplay';
 
 function getState(state) {
@@ -26,6 +26,7 @@ export default class PresenterHandler extends Component {
     return (
       <PresenterLayout clockMode={this.props.clockMode} percentComplete={this.props.percentComplete}>
         <TimeDisplay {...this.props.display}/>
+        <Teleprompter text={this.props.display.teleprompter}/>
       </PresenterLayout>
     );
   }

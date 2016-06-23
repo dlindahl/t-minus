@@ -1,43 +1,10 @@
 import assign from 'lodash/assign';
-import Colors from '../../../shared/constants/Colors';
-import { PropTypes } from 'react';
-import TimerSeverity from '../../../shared/actionTypes/TimerSeverityTypes';
+import { Component, PropTypes } from 'react';
+import withSeverity from '../../decorators/withSeverity';
 
 const baseStyles = {
-  severity: {
-    [TimerSeverity.TIMER_SEVERITY_CALM]: {
-      background: Colors.Silver,
-      color: Colors.MidnightBlue
-    },
-    [TimerSeverity.TIMER_SEVERITY_WARN]: {
-      background: Colors.SunFlower,
-      color: Colors.MidnightBlue
-    },
-    [TimerSeverity.TIMER_SEVERITY_DANGER]: {
-      background: Colors.Alizarin,
-      color: Colors.MidnightBlue
-    },
-    [TimerSeverity.TIMER_SEVERITY_CRITICAL]: {
-      background: Colors.Pomegranate,
-      color: Colors.Clouds
-    }
-  },
   microseconds: {
     fontSize: '5vw'
-  },
-  microsecondsSeverity: {
-    [TimerSeverity.TIMER_SEVERITY_CALM]: {
-      color: Colors.Concrete
-    },
-    [TimerSeverity.TIMER_SEVERITY_WARN]: {
-      color: Colors.Orange
-    },
-    [TimerSeverity.TIMER_SEVERITY_DANGER]: {
-      color: Colors.Pomegranate
-    },
-    [TimerSeverity.TIMER_SEVERITY_CRITICAL]: {
-      color: Colors.Alizarin
-    }
   },
   prefix: {
     [false]: {
@@ -48,49 +15,70 @@ const baseStyles = {
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    fontFamily: 'Roboto Mono',
+    fontFamily: 'Roboto Mono, monospace',
     fontSize: '14vw',
     justifyContent: 'center',
-    height: '100%',
+    flex: 1,
     width: '100%'
   }
 };
 
-const TimeDisplay = (props) => (
-  <div style={assign({}, baseStyles.root, baseStyles.severity[props.severity])}>
-    <div>
-      <span style={baseStyles.prefix[props.hasTimerElapsed]}>
-        -
-      </span>
-      <span>
-        {props.hours}
-      </span>
-      :
-      <span>
-        {props.minutes}
-      </span>
-      :
-      <span>
-        {props.seconds}
-      </span>
-      <span style={assign({}, baseStyles.microseconds, baseStyles.microsecondsSeverity[props.severity])}>
-        .{props.microseconds}
-      </span>
-    </div>
-  </div>
-);
+@withSeverity
+export default class TimeDisplay extends Component {
+  render() {
+    const style =
+      assign(
+        {},
+        baseStyles.root,
+        {
+          background: this.props.secondaryColor,
+          color: this.props.primaryColor
+        }
+      );
+    const microsecondsStyle =
+      assign(
+        {},
+        baseStyles.microseconds,
+        { color: this.props.tertiaryColor }
+      );
+    return (
+      <div style={style}>
+        <div>
+          <span style={baseStyles.prefix[this.props.hasTimerElapsed]}>
+            -
+          </span>
+          <span>
+            {this.props.hours}
+          </span>
+          :
+          <span>
+            {this.props.minutes}
+          </span>
+          :
+          <span>
+            {this.props.seconds}
+          </span>
+          <span style={microsecondsStyle}>
+            .{this.props.microseconds}
+          </span>
+        </div>
+      </div>
+    );
+  }
+};
 
 TimeDisplay.propTypes = {
   hasTimerElapsed: PropTypes.bool,
-  severity: PropTypes.string,
   hours: PropTypes.string,
   minutes: PropTypes.string,
   seconds: PropTypes.string,
-  microseconds: PropTypes.string
+  microseconds: PropTypes.string,
+  primaryColor: PropTypes.string,
+  secondaryColor: PropTypes.string,
+  tertiaryColor: PropTypes.string
 };
 TimeDisplay.defaultProps = {
   hasTimerElapsed: false,
-  severity: TimerSeverity.TIMER_SEVERITY_CALM,
   hours: '--',
   minutes: '--',
   seconds: '--',

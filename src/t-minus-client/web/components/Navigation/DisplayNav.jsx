@@ -1,10 +1,10 @@
 import AppNavBar from './AppNavBar';
 import SpawnPresenterWindowButton from '../Buttons/SpawnPresenterWindowButton';
-import TelePromptInput from '../Inputs/TelePromptInput';
+import TeleprompterInput from '../Teleprompter/TeleprompterInput';
 
 const DisplayNav = (props) => (
   <AppNavBar direction="row">
-    <TelePromptInput/>
+    <TeleprompterInput/>
     &nbsp;
     <SpawnPresenterWindowButton/>
   </AppNavBar>

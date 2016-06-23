@@ -1,7 +1,7 @@
-import AppFooter from './AppFooter';
 import ClockNav from '../Navigation/ClockNav';
 import Colors from '../../../shared/constants/Colors';
 import DisplayNav from '../Navigation/DisplayNav';
+import TimerProgress from '../Progress/TimerProgress';
 import { PropTypes } from 'react';
 
 const baseStyles = {
@@ -15,7 +15,9 @@ const baseStyles = {
     padding: 15
   },
   main: {
-    flex: 1
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'column'
   },
   root: {
     display: 'flex'
@@ -28,7 +30,7 @@ const Layout = (props) => (
       <main style={baseStyles.main}>
         {props.children}
       </main>
-      <AppFooter/>
+      <TimerProgress/>
     </div>
   </div>
 );

@@ -3,6 +3,7 @@ import ClockActions from '../actionTypes/ClockActionTypes';
 import inRange from 'lodash/inRange';
 import padStart from 'lodash/padStart';
 import PresenterActions from '../actionTypes/PresenterActionTypes';
+import TeleprompterActions from '../actionTypes/TeleprompterActionTypes';
 import TimerSeverity from '../actionTypes/TimerSeverityTypes';
 
 const DefaultSeverity = TimerSeverity.TIMER_SEVERITY_CALM;
@@ -18,6 +19,7 @@ function initialState() {
     hasTimerElapsed: false,
     mode: null,
     severity: calculateSeverity(),
+    teleprompter: '',
     timerValue: null
   });
 }
@@ -90,6 +92,10 @@ export default function display(state = initialState(), action) {
       });
     case PresenterActions.PRESENTER_STATE_CHANGED:
       return assign({}, payload.display);
+    case TeleprompterActions.TELEPROMPTER_VALUE_CHANGED:
+      return assign({}, state, {
+        teleprompter: payload.value
+      });
     default:
       return state;
   }
