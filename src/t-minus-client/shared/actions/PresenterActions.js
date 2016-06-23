@@ -1,5 +1,4 @@
 import omit from 'lodash/omit';
-import partial from 'lodash/'
 import PresenterActions from '../actionTypes/PresenterActionTypes';
 
 function parseEventData(data = {}) {
