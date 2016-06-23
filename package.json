@@ -10,7 +10,7 @@
     "node": "5.1.0"
   },
   "scripts": {
-    "build": "webpack --config config/webpack.config.js",
+    "build": "NODE_ENV=production webpack --config config/webpack.config.js",
     "deploy": "gh-pages-deploy",
     "dev": "NODE_ENV=development npm start",
     "start": "node src/t-minus-server/server",
