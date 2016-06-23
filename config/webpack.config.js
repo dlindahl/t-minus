@@ -1,6 +1,7 @@
 /* eslint-disable no-var */
 'use strict';
 
+var CompressionPlugin = require('compression-webpack-plugin');
 var config;
 var env = require('./environment');
 var path = require('path');
@@ -45,6 +46,10 @@ var Plugins = {
       'process.env': {
         NODE_ENV: JSON.stringify(env.get('env'))
       }
+    }),
+    new CompressionPlugin({
+      assert: '{file}.gz',
+      regExp: /\.js/
     })
   ],
   development: [
