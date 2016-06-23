@@ -75,7 +75,7 @@ export function spawnPresenterWindow() {
       console.warn('Presenter Window already spawned. If closed, it was not cleaned up properly.');
       return;
     }
-    const presenterWin = window.open('/presenter.html');
+    const presenterWin = window.open('presenter.html');
     dispatch({
       type: PresenterActions.PRESENTER_WINDOW_SPAWNED,
       payload: { presenterWin }
