@@ -23,7 +23,8 @@
   },
   "plugins": [
     "lodash",
-    "transform-decorators-legacy"
+    "transform-decorators-legacy",
+    "transform-react-constant-elements"
   ],
   "presets": [
     "es2015",

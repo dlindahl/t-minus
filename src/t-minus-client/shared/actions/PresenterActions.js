@@ -34,13 +34,6 @@ export function handlePresenterMessage(win, store, event) {
   }
 }
 
-function presenterClosed(clientWin, presenterWin) {
-  clientWin.postMessage(JSON.stringify({
-    type: PresenterActions.PRESENTER_WINDOW_CLOSED,
-    payload: {}
-  }), presenterWin.location.origin);
-}
-
 // Tells the Client Window that the Presenter app has mounted and is ready to
 // receive state and messages
 export function presenterReady(presenterWin) {

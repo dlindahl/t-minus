@@ -1,4 +1,3 @@
-import { bindActionCreators } from 'redux';
 import { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ClientLayout from '../Layout/ClientLayout';

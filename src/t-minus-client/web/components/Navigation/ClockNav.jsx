@@ -1,6 +1,5 @@
 import AppNavBar from './AppNavBar';
 import Colors from '../../../shared/constants/Colors';
-import { PropTypes } from 'react';
 import ResetButton from '../Buttons/ResetButton';
 import StartStopButton from '../Buttons/StartStopButton';
 import StopwatchModeToggleButton from '../Buttons/StopwatchModeToggleButton';

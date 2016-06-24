@@ -4,6 +4,7 @@
 var CompressionPlugin = require('compression-webpack-plugin');
 var config;
 var env = require('./environment');
+var isProd = env.get('env') === 'production';
 var path = require('path');
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
 var webpack = require('webpack');
@@ -54,6 +55,20 @@ var Plugins = {
   ],
   development: [
     new webpack.HotModuleReplacementPlugin()
+  ],
+  nonDevelopment: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      mangle: true,
+      output: {
+        beautify: false,
+        comments: false,
+        screw_ie8: true,
+        space_colon: false
+      }
+    })
   ]
 };
 
@@ -68,7 +83,7 @@ function defineEnvSpecific(definitions, env) {
 }
 
 config = {
-  devtool: 'eval',
+  devtool: isProd ? 'hidden-source-map' : 'cheap-module-source-map',
   entry: {
     client: defineEnvSpecific(Entries.client, env.get('env')),
     presenter: defineEnvSpecific(Entries.presenter, env.get('env'))
