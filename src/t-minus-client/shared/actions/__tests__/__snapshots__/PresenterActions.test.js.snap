@@ -1,0 +1,78 @@
+exports[`PresenterActions #handlePresenterMessage initializes the presenter window state when the window is ready 1`] = `
+Array [
+  Array [
+    "{\"type\":\"PRESENTER_STATE_CHANGED\",\"payload\":{\"foo\":{\"bar\":\"baz\"}}}",
+    "ORIGIN",
+  ],
+]
+`;
+
+exports[`PresenterActions #handlePresenterMessage relays an error to the redux store when the data is not parseable JSON 1`] = `[SyntaxError: Unexpected token { in JSON at position 1]`;
+
+exports[`PresenterActions #handlePresenterMessage relays the data to the redux store 1`] = `
+Object {
+  "payload": Object {
+    "foo": "bar",
+  },
+  "type": "TEST_TYPE",
+}
+`;
+
+exports[`PresenterActions #presenterReady dispatches a NOT_FOUND event when the app window cannot be found 1`] = `
+Object {
+  "payload": Object {},
+  "type": "CLIENT_WINDOW_NOT_FOUND",
+}
+`;
+
+exports[`PresenterActions #presenterReady listens for the presenter window closing 1`] = `
+Array [
+  "{\"type\":\"PRESENTER_WINDOW_CLOSED\",\"payload\":{}}",
+  "ORIGIN",
+]
+`;
+
+exports[`PresenterActions #presenterReady tells the app window that the presenter window is ready 1`] = `
+Object {
+  "payload": Object {
+    "clientWin": Object {
+      "addEventListener": [Function],
+      "close": [Function],
+      "location": Object {
+        "origin": "ORIGIN",
+      },
+      "open": [Function],
+      "postMessage": [Function],
+      "removeEventListener": [Function],
+    },
+  },
+  "type": "PRESENTER_WINDOW_READY",
+}
+`;
+
+exports[`PresenterActions #presenterReady tells the app window that the presenter window is ready 2`] = `
+Array [
+  Array [
+    "{\"type\":\"PRESENTER_WINDOW_READY\",\"payload\":{}}",
+    "ORIGIN",
+  ],
+]
+`;
+
+exports[`PresenterActions #spawnPresenterWindow dispatches a PRESENTER_WINDOW_SPAWNED event when the presenter window has spawned 1`] = `
+Object {
+  "payload": Object {
+    "presenterWin": Object {
+      "addEventListener": [Function],
+      "close": [Function],
+      "location": Object {
+        "origin": "ORIGIN",
+      },
+      "open": [Function],
+      "postMessage": [Function],
+      "removeEventListener": [Function],
+    },
+  },
+  "type": "PRESENTER_WINDOW_SPAWNED",
+}
+`;

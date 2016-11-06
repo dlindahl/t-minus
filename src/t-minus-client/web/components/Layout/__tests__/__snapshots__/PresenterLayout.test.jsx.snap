@@ -1,0 +1,34 @@
+exports[`PresenterLayout renders the component 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "height": "100vh",
+      }
+    }>
+    <main
+      style={
+        Object {
+          "display": "flex",
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      } />
+    <div
+      style={
+        Object {
+          "background": undefined,
+          "height": 50,
+        }
+      } />
+  </div>
+</div>
+`;

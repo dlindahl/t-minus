@@ -1,6 +1,7 @@
 import assign from 'lodash/assign';
 import ClockActions from '../actionTypes/ClockActionTypes';
 import inRange from 'lodash/inRange';
+import padEnd from 'lodash/padEnd';
 import padStart from 'lodash/padStart';
 import PresenterActions from '../actionTypes/PresenterActionTypes';
 import TeleprompterActions from '../actionTypes/TeleprompterActionTypes';
@@ -37,7 +38,7 @@ function calculateSeverity(state = {}, payload = {}) {
         return TimerSeverity.TIMER_SEVERITY_WARN;
       case inRange(completeness, 0.8, 0.9):
         return TimerSeverity.TIMER_SEVERITY_DANGER;
-      case completeness > 0.9:
+      case completeness >= 0.9:
         return TimerSeverity.TIMER_SEVERITY_CRITICAL;
       default:
         return DefaultSeverity;
@@ -46,8 +47,8 @@ function calculateSeverity(state = {}, payload = {}) {
   switch(true) {
     case payload.timeRemaining < 0:
       return TimerSeverity.TIMER_SEVERITY_CRITICAL;
-      case payload.timeRemaining < 30 * 1000:
-        return TimerSeverity.TIMER_SEVERITY_DANGER;
+    case payload.timeRemaining < 30 * 1000:
+      return TimerSeverity.TIMER_SEVERITY_DANGER;
     case payload.timeRemaining < 1 * 60 * 1000:
       return TimerSeverity.TIMER_SEVERITY_WARN;
     default:
@@ -64,7 +65,7 @@ function formatDisplay(payload = {}) {
     hours: padStart(duration.h, 2, '0'),
     minutes: padStart(duration.m, 2, '0'),
     seconds: padStart(duration.s, 2, '0'),
-    microseconds: padStart(duration.ms, 4, '0')
+    microseconds: padEnd(duration.ms, 4, '0')
   };
 }
 

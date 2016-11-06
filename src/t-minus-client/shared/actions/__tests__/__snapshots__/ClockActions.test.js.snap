@@ -1,0 +1,246 @@
+exports[`ClockActions #changeTimerValue resets and updates the timer value when in stopwatch mode 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 0,
+  },
+  "percentComplete": 1,
+  "timeRemaining": null,
+  "timerValue": undefined,
+}
+`;
+
+exports[`ClockActions #changeTimerValue resets and updates the timer value when in timer mode 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 5,
+  },
+  "percentComplete": 0,
+  "timeRemaining": 5000,
+  "timerValue": 5000,
+}
+`;
+
+exports[`ClockActions #clockTick recalculates the clock state when running 1`] = `
+Object {
+  "currentTick": 2000,
+  "delta": 2000,
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 2,
+  },
+  "elapsedTime": 2000,
+  "hasTimerElapsed": false,
+  "mode": "CLOCK_MODE_STOPWATCH",
+  "percentComplete": 1,
+  "timeRemaining": null,
+}
+`;
+
+exports[`ClockActions #clockTick recalculates the timer state when running 1`] = `
+Object {
+  "currentTick": 2000,
+  "delta": 2000,
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 3,
+  },
+  "elapsedTime": 2000,
+  "hasTimerElapsed": false,
+  "mode": "CLOCK_MODE_TIMER",
+  "percentComplete": 0.4,
+  "timeRemaining": 3000,
+}
+`;
+
+exports[`ClockActions #pauseClock pauses the clock 1`] = `Object {}`;
+
+exports[`ClockActions #resetClock resets the clock 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 0,
+  },
+  "percentComplete": 1,
+  "timeRemaining": null,
+  "timerValue": 5000,
+}
+`;
+
+exports[`ClockActions #resetClock resets the timer 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 5,
+  },
+  "percentComplete": 0,
+  "timeRemaining": 5000,
+  "timerValue": 5000,
+}
+`;
+
+exports[`ClockActions #startClock starts the stopwatch 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 0,
+  },
+  "percentComplete": 1,
+  "startedAt": 0,
+  "timeRemaining": null,
+}
+`;
+
+exports[`ClockActions #startClock starts the stopwatch 2`] = `
+Object {
+  "currentTick": 50,
+  "delta": 50,
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 50,
+    "s": 0,
+  },
+  "elapsedTime": 50,
+  "hasTimerElapsed": false,
+  "mode": "CLOCK_MODE_STOPWATCH",
+  "percentComplete": 1,
+  "timeRemaining": null,
+}
+`;
+
+exports[`ClockActions #startClock starts the timer 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 5,
+  },
+  "percentComplete": 0,
+  "startedAt": 0,
+  "timeRemaining": 5000,
+}
+`;
+
+exports[`ClockActions #startClock starts the timer 2`] = `
+Object {
+  "currentTick": 50,
+  "delta": 50,
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 950,
+    "s": 4,
+  },
+  "elapsedTime": 50,
+  "hasTimerElapsed": false,
+  "mode": "CLOCK_MODE_TIMER",
+  "percentComplete": 0.01,
+  "timeRemaining": 4950,
+}
+`;
+
+exports[`ClockActions #stopwatchMode resets the clock and changes the mode from stopwatch to stopwatch 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 0,
+  },
+  "mode": "CLOCK_MODE_STOPWATCH",
+  "percentComplete": 1,
+  "timeRemaining": null,
+}
+`;
+
+exports[`ClockActions #stopwatchMode resets the clock and changes the mode from timer to stopwatch 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 0,
+  },
+  "mode": "CLOCK_MODE_STOPWATCH",
+  "percentComplete": 1,
+  "timeRemaining": null,
+}
+`;
+
+exports[`ClockActions #timerMode resets the clock and changes the mode from stopwatch to timer 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 5,
+  },
+  "mode": "CLOCK_MODE_TIMER",
+  "percentComplete": 0,
+  "timeRemaining": 5000,
+}
+`;
+
+exports[`ClockActions #timerMode resets the clock and changes the mode from timer to timer 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 5,
+  },
+  "mode": "CLOCK_MODE_TIMER",
+  "percentComplete": 0,
+  "timeRemaining": 5000,
+}
+`;
+
+exports[`ClockActions #toggleClock pauses the clock when running 1`] = `Object {}`;
+
+exports[`ClockActions #toggleClock starts the clock when not previously started 1`] = `
+Object {
+  "duration": Object {
+    "d": 0,
+    "h": 0,
+    "m": 0,
+    "ms": 0,
+    "s": 0,
+  },
+  "percentComplete": 1,
+  "startedAt": 0,
+  "timeRemaining": null,
+}
+`;
+
+exports[`ClockActions #toggleClock unpauses the clock when paused 1`] = `Object {}`;

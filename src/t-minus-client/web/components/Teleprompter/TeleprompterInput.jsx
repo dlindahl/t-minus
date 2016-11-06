@@ -25,6 +25,9 @@ const baseStyles = {
       overflow: 'hidden'
     },
     focus: {
+      [false]: {
+        background: 'transparent'
+      },
       [true]: {
         background: Colors.WetAsphalt
       }
@@ -51,7 +54,7 @@ export default class TeleprompterInput extends Component {
   }
   handleBlur() {
     this.setState({ focus: false });
-    if(!this.refs.input.value.trim().length) {
+    if(!this.state.value.trim().length) {
       this.props.setTeleprompterValue('');
     }
   }
@@ -61,8 +64,8 @@ export default class TeleprompterInput extends Component {
   handleSubmit(e) {
     const input = this.refs.input;
     e.preventDefault();
-    this.props.setTeleprompterValue(input.value);
-    input.setSelectionRange(0, input.value.length);
+    this.props.setTeleprompterValue(this.state.value);
+    input.setSelectionRange(0, this.state.value.length);
   }
   render() {
     const inputStyle =

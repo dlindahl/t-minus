@@ -1,0 +1,25 @@
+exports[`Beer renders the component 1`] = `
+<button
+  onClick={undefined}
+  style={
+    Object {
+      "background": "#bdc3c7",
+      "border": "none",
+      "borderRadius": 4,
+      "color": "#fff",
+      "cursor": "pointer",
+      "fontSize": 15,
+      "fontWeight": "normal",
+      "lineHeight": 1.4,
+      "marginBottom": 0,
+      "paddingBottom": 10,
+      "paddingLeft": 15,
+      "paddingRight": 15,
+      "paddingTop": 10,
+      "textAlign": "center",
+      "verticalAlign": "middle",
+    }
+  }>
+  <div />
+</button>
+`;

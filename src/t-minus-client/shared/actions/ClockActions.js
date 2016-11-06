@@ -1,8 +1,10 @@
 import ClockActions from '../actionTypes/ClockActionTypes';
+import emptyObj from 'empty/object';
 import formatDuration from '../util/formatDuration';
 import partial from 'lodash/partial';
+import present from 'present';
 
-const IntervalValue = 50;
+export const IntervalValue = 50;
 let interval = null;
 
 function calculateDuration(mode, elapsedTime, maxDuration) {
@@ -25,16 +27,16 @@ function determineTimerElapsed(mode, elapsedTime, maxDuration) {
   }
 }
 
-function clockTick(dispatch, getState) {
+export function clockTick(dispatch, getState) {
   const { clock } = getState();
   if(!clock.running) {
     return;
   }
-  const currentTick = performance.now();
+  const currentTick = present();
   const delta = currentTick - clock.lastTick;
   const elapsedTime = clock.elapsedTime + delta;
-  const [duration, timeRemaining, percentComplete] = calculateDuration(clock.mode, clock.elapsedTime, clock.timerValue);
-  const hasTimerElapsed = determineTimerElapsed(clock.mode, clock.elapsedTime, clock.timerValue);
+  const [duration, timeRemaining, percentComplete] = calculateDuration(clock.mode, elapsedTime, clock.timerValue);
+  const hasTimerElapsed = determineTimerElapsed(clock.mode, elapsedTime, clock.timerValue);
   dispatch({
     type: ClockActions.CLOCK_TICK,
     payload: {
@@ -53,7 +55,7 @@ function clockTick(dispatch, getState) {
 export function pauseClock() {
   return {
     type: ClockActions.CLOCK_PAUSED,
-    payload: {}
+    payload: emptyObj
   };
 }
 
@@ -84,7 +86,7 @@ export function startClock() {
       payload: {
         duration,
         percentComplete,
-        startedAt: performance.now(),
+        startedAt: present(),
         timeRemaining
       }
     });
@@ -137,7 +139,7 @@ export function timerMode() {
 export function toggleClock() {
   return (dispatch, getState) => {
     const clock = getState().clock
-    if(!clock.startedAt) {
+    if(clock.startedAt == null) {
       startClock()(dispatch, getState);
     } else if(clock.running) {
       dispatch(pauseClock());

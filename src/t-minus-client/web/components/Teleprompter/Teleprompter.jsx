@@ -5,6 +5,9 @@ import withSeverity from '../../decorators/withSeverity';
 
 const baseStyles = {
   empty: {
+    [false]: {
+      flex: 1
+    },
     [true]: {
       flex: 0
     }
@@ -12,7 +15,6 @@ const baseStyles = {
   root: {
     alignItems: 'center',
     display: 'flex',
-    flex: 1,
     fontFamily: 'Roboto Mono, monospace',
     fontSize: '8vw',
     justifyContent: 'center',
@@ -42,7 +44,7 @@ export default class Teleprompter extends Component {
       );
     return (
       <div style={style}>
-        <div>
+        <div data-test-id="prompterText">
           {prompterText}
         </div>
       </div>

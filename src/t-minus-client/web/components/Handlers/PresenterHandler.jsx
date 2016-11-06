@@ -24,7 +24,7 @@ export default class PresenterHandler extends Component {
   }
   render() {
     return (
-      <PresenterLayout clockMode={this.props.clockMode} percentComplete={this.props.percentComplete}>
+      <PresenterLayout percentComplete={this.props.percentComplete}>
         <TimeDisplay {...this.props.display}/>
         <Teleprompter text={this.props.display.teleprompter}/>
       </PresenterLayout>

@@ -15,10 +15,7 @@ function getState(state) {
 export default class ClientHandler extends Component {
   render() {
     return (
-      <ClientLayout
-        clockMode={this.props.clockMode}
-        percentComplete={this.props.percentComplete}
-      >
+      <ClientLayout percentComplete={this.props.percentComplete}>
         <TimeDisplay {...this.props.display}/>
         <Teleprompter text={this.props.display.teleprompter}/>
       </ClientLayout>

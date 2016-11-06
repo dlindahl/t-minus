@@ -1,6 +1,7 @@
 import assign from 'lodash/assign';
 import Colors from '../../../shared/constants/Colors';
 import { Children, cloneElement, PropTypes } from 'react';
+import omit from 'lodash/omit';
 
 const baseStyles = {
   active: {
@@ -40,7 +41,7 @@ function iconize(node) {
 const AppNavButton = (props) => {
   return (
     <button
-      {...props}
+      {...omit(props, 'active')}
       style={
         assign(
           {},

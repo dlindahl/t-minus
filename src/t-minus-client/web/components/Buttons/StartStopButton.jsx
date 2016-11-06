@@ -29,11 +29,11 @@ export default class StartStopButton extends Component {
   render() {
     let label;
     if(!this.props.started) {
-      label = <PlayArrow/>;
+      label = <PlayArrow data-test-id="PlayArrow"/>;
     } else if(this.props.running) {
-      label = <Pause/>;
+      label = <Pause data-test-id="Pause"/>;
     } else {
-      label = <PlayArrow/>;
+      label = <PlayArrow data-test-id="PlayArrow"/>;
     }
     return (
       <AppNavButton active={this.props.running} onClick={this.handleClick}>

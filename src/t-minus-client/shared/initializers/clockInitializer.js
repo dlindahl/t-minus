@@ -2,21 +2,20 @@ import { bindActionCreators } from 'redux';
 import { changeTimerValue, stopwatchMode, timerMode } from '../actions/ClockActions';
 import ClockActions from '../actionTypes/ClockActionTypes';
 
-const initialMode = ClockActions.CLOCK_MODE_STOPWATCH;
-const initialTimerValue = 3 * 60 * 1000;
+const DefaultInitialMode = ClockActions.CLOCK_MODE_STOPWATCH;
+const DefaultInitialTimerValue = 3 * 60 * 1000;
 
-export default function clockInitializer(store) {
+export default function clockInitializer(store, initialTimerValue = DefaultInitialTimerValue, initialMode = DefaultInitialMode) {
   if(!store) {
     return;
   }
-  const actions = bindActionCreators({ changeTimerValue, stopwatchMode, timerMode }, store.dispatch);
-  actions.changeTimerValue(initialTimerValue);
+  changeTimerValue(initialTimerValue)(store.dispatch, store.getState);
   switch(initialMode) {
     case ClockActions.CLOCK_MODE_STOPWATCH:
-      actions.stopwatchMode();
+      store.dispatch(stopwatchMode());
       break;
     case ClockActions.CLOCK_MODE_TIMER:
-      actions.timerMode();
+      timerMode()(store.dispatch, store.getState);
       break;
     default:
       console.warn('Unknown initial clock mode: "%s"', initialMode);

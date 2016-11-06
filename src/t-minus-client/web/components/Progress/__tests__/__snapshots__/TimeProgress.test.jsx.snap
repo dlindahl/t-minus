@@ -1,0 +1,28 @@
+exports[`TimeProgress renders a stopwatch when in stopwatch moder 1`] = `
+<div
+  style={
+    Object {
+      "background": "#bdc3c7",
+      "height": 50,
+    }
+  } />
+`;
+
+exports[`TimeProgress renders a timer when in timer moder 1`] = `
+<div
+  style={
+    Object {
+      "background": "#bdc3c7",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "background": "#95a5a6",
+        "height": 50,
+        "whiteSpace": "nowrap",
+        "width": "50%",
+      }
+    } />
+</div>
+`;

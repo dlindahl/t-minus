@@ -2,7 +2,7 @@ export default function formatDuration(duration) {
   let d, h, m, s, ms;
   d = h = m = s = ms = 0;
   if(duration) {
-    ms = Math.abs(Math.floor((duration % 1) * 1000));
+    ms = Math.abs(Math.floor(((duration / 1000) % 1) * 1000));
     s = Math.abs(Math.floor(duration / 1000));
     m = Math.abs(Math.floor(s / 60));
     s = s % 60;

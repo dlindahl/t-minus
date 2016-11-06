@@ -1,0 +1,108 @@
+exports[`AppNavBar renders itemized children 1`] = `
+<nav
+  style={
+    Object {
+      "background": "#2c3e50",
+      "height": 50,
+    }
+  }>
+  <ul
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "listStyleType": "none",
+        "margin": 0,
+        "padding": 0,
+      }
+    }>
+    <li
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }>
+      <div>
+        TITLE
+      </div>
+    </li>
+    <li
+      style={
+        Object {
+          "textAlign": "center",
+        }
+      }>
+      <button>
+        BUTTON
+      </button>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`AppNavBar renders the component 1`] = `
+<nav
+  style={
+    Object {
+      "background": "#2c3e50",
+      "height": 50,
+    }
+  }>
+  <ul
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "listStyleType": "none",
+        "margin": 0,
+        "padding": 0,
+      }
+    } />
+</nav>
+`;
+
+exports[`AppNavBar renders the component as a column 1`] = `
+<nav
+  style={
+    Object {
+      "background": "#2c3e50",
+      "width": 50,
+    }
+  }>
+  <ul
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "100%",
+        "listStyleType": "none",
+        "margin": 0,
+        "padding": 0,
+      }
+    } />
+</nav>
+`;
+
+exports[`AppNavBar renders the component as a row 1`] = `
+<nav
+  style={
+    Object {
+      "background": "#2c3e50",
+      "height": 50,
+    }
+  }>
+  <ul
+    style={
+      Object {
+        "display": "flex",
+        "flexDirection": "row",
+        "height": "100%",
+        "listStyleType": "none",
+        "margin": 0,
+        "padding": 0,
+      }
+    } />
+</nav>
+`;

@@ -1,0 +1,8 @@
+exports[`TeleprompterActions #setTeleprompterValue indicates that the teleprompter value has changed 1`] = `
+Object {
+  "payload": Object {
+    "value": "VALUE",
+  },
+  "type": "TELEPROMPTER_VALUE_CHANGED",
+}
+`;

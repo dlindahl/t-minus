@@ -20,13 +20,6 @@ const baseStyles = {
   default: {
     background: '#bdc3c7',
     color: '#fff'
-  },
-  large: {
-    borderRadius: 6,
-    fontSize: 17,
-    lineHeight: 1.471,
-    paddingLeft: 19,
-    paddingRight: 19
   }
 };
 
@@ -39,9 +32,5 @@ const Button = (props) => (
 Button.propTypes = {
   children: PropTypes.node
 };
-
-// Button.defaultProps = {
-//
-// };
 
 export default Button;

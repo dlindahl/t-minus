@@ -1,0 +1,113 @@
+exports[`PresenterHandler renders the component 1`] = `
+<div
+  style={
+    Object {
+      "display": "flex",
+    }
+  }>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "flex": 1,
+        "flexDirection": "column",
+        "height": "100vh",
+      }
+    }>
+    <main
+      style={
+        Object {
+          "display": "flex",
+          "flex": 1,
+          "flexDirection": "column",
+        }
+      }>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "background": undefined,
+            "color": undefined,
+            "display": "flex",
+            "flex": 1,
+            "flexDirection": "column",
+            "fontFamily": "Roboto Mono, monospace",
+            "fontSize": "14vw",
+            "justifyContent": "center",
+            "width": "100%",
+          }
+        }>
+        <div>
+          <span
+            data-test-id="prefix"
+            style={
+              Object {
+                "opacity": 0,
+                "pointerEvents": "none",
+              }
+            }>
+            -
+          </span>
+          <span
+            data-test-id="hours">
+            --
+          </span>
+          :
+          <span
+            data-test-id="minutes">
+            --
+          </span>
+          :
+          <span
+            data-test-id="seconds">
+            --
+          </span>
+          <span
+            data-test-id="microseconds"
+            style={
+              Object {
+                "color": undefined,
+                "fontSize": "5vw",
+              }
+            }>
+            .
+            ----
+          </span>
+        </div>
+      </div>
+      <div
+        style={
+          Object {
+            "alignItems": "center",
+            "background": undefined,
+            "color": undefined,
+            "display": "flex",
+            "flex": 1,
+            "fontFamily": "Roboto Mono, monospace",
+            "fontSize": "8vw",
+            "justifyContent": "center",
+            "overflow": "hidden",
+            "paddingBottom": 10,
+            "paddingLeft": "5%",
+            "paddingRight": "5%",
+            "paddingTop": 10,
+            "textTransform": "uppercase",
+            "transition": "flex-grow .5s ease-in-out",
+          }
+        }>
+        <div
+          data-test-id="prompterText">
+          TEXT
+        </div>
+      </div>
+    </main>
+    <div
+      style={
+        Object {
+          "background": undefined,
+          "height": 50,
+        }
+      } />
+  </div>
+</div>
+`;

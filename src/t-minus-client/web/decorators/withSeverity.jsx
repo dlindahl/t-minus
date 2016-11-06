@@ -45,5 +45,6 @@ export default function withSeverity(WrappedComponent) {
   SeverityTheme.defaultProps = {
     severity: TimerSeverity.TIMER_SEVERITY_CALM
   };
+  SeverityTheme.WrappedComponent = WrappedComponent;
   return SeverityTheme;
 }

@@ -7,8 +7,14 @@ const baseStyles = {
     fontSize: '5vw'
   },
   prefix: {
+    default: {
+      pointerEvents: 'none'
+    },
     [false]: {
-      visibility: 'hidden'
+      opacity: 0
+    },
+    [true]: {
+      opacity: 1
     }
   },
   root: {
@@ -23,48 +29,51 @@ const baseStyles = {
   }
 };
 
-@withSeverity
-export default class TimeDisplay extends Component {
-  render() {
-    const style =
-      assign(
-        {},
-        baseStyles.root,
-        {
-          background: this.props.secondaryColor,
-          color: this.props.primaryColor
-        }
-      );
-    const microsecondsStyle =
-      assign(
-        {},
-        baseStyles.microseconds,
-        { color: this.props.tertiaryColor }
-      );
-    return (
-      <div style={style}>
-        <div>
-          <span style={baseStyles.prefix[this.props.hasTimerElapsed]}>
-            -
-          </span>
-          <span>
-            {this.props.hours}
-          </span>
-          :
-          <span>
-            {this.props.minutes}
-          </span>
-          :
-          <span>
-            {this.props.seconds}
-          </span>
-          <span style={microsecondsStyle}>
-            .{this.props.microseconds}
-          </span>
-        </div>
-      </div>
+const TimeDisplay = (props) => {
+  const microsecondsStyle =
+    assign(
+      {},
+      baseStyles.microseconds,
+      { color: props.tertiaryColor }
     );
-  }
+  const prefixStyle =
+    assign(
+      {},
+      baseStyles.prefix.default,
+      baseStyles.prefix[props.hasTimerElapsed]
+    );
+  const style =
+    assign(
+      {},
+      baseStyles.root,
+      {
+        background: props.secondaryColor,
+        color: props.primaryColor
+      }
+    );
+  return (
+    <div style={style}>
+      <div>
+        <span data-test-id="prefix" style={prefixStyle}>
+          -
+        </span>
+        <span data-test-id="hours">
+          {props.hours}
+        </span>
+        :
+        <span data-test-id="minutes">
+          {props.minutes}
+        </span>
+        :
+        <span data-test-id="seconds">
+          {props.seconds}
+        </span>
+        <span data-test-id="microseconds" style={microsecondsStyle}>
+          .{props.microseconds}
+        </span>
+      </div>
+    </div>
+  );
 };
 
 TimeDisplay.propTypes = {
@@ -85,4 +94,4 @@ TimeDisplay.defaultProps = {
   microseconds: '----'
 };
 
-export default TimeDisplay;
+export default withSeverity(TimeDisplay);
