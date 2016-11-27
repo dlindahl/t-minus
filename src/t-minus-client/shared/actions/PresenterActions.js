@@ -1,6 +1,6 @@
 import ClockActions from '../actionTypes/ClockActionTypes';
 import emptyObj from 'empty/object';
-import omit from 'lodash/omit';
+import { omit } from 'lodash';
 import PresenterActions from '../actionTypes/PresenterActionTypes';
 
 function parseEventData(data = '{}') {

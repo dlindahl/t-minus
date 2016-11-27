@@ -1,4 +1,4 @@
-import assign from 'lodash/assign';
+import { assign } from 'lodash';
 import ClockActions from '../actionTypes/ClockActionTypes';
 import present from 'present';
 import PresenterActions from '../actionTypes/PresenterActionTypes';

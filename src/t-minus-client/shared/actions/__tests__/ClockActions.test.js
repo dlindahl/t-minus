@@ -2,7 +2,7 @@ import * as clock from '../ClockActions';
 import configureStore from 'redux-mock-store';
 import emptyObj from 'empty/object';
 import lolex from 'lolex';
-import merge from 'lodash/merge';
+import { merge } from 'lodash';
 
 const STATES = {
   stopwatch: {

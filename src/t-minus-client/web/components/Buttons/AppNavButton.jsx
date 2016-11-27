@@ -1,7 +1,6 @@
-import assign from 'lodash/assign';
+import { assign, omit } from 'lodash';
 import Colors from '../../../shared/constants/Colors';
 import { Children, cloneElement, PropTypes } from 'react';
-import omit from 'lodash/omit';
 
 const baseStyles = {
   active: {

@@ -1,4 +1,4 @@
-import assign from 'lodash/assign';
+import { assign } from 'lodash';
 import Colors from '../../../shared/constants/Colors';
 import { Component, PropTypes } from 'react';
 import withSeverity from '../../decorators/withSeverity';

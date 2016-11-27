@@ -1,8 +1,5 @@
-import assign from 'lodash/assign';
+import { assign, inRange, padEnd, padStart } from 'lodash';
 import ClockActions from '../actionTypes/ClockActionTypes';
-import inRange from 'lodash/inRange';
-import padEnd from 'lodash/padEnd';
-import padStart from 'lodash/padStart';
 import PresenterActions from '../actionTypes/PresenterActionTypes';
 import TeleprompterActions from '../actionTypes/TeleprompterActionTypes';
 import TimerSeverity from '../actionTypes/TimerSeverityTypes';

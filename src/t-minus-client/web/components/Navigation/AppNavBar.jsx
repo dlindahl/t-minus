@@ -1,7 +1,6 @@
-import assign from 'lodash/assign';
+import { assign, isString } from 'lodash';
 import { Children, cloneElement, PropTypes } from 'react';
 import Colors from '../../../shared/constants/Colors';
-import isString from 'lodash/isString';
 
 const baseStyles = {
   filler: {

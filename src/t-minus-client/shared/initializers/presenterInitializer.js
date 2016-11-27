@@ -1,6 +1,5 @@
 import { handlePresenterMessage } from '../actions/PresenterActions';
-import omit from 'lodash/omit';
-import partial from 'lodash/partial';
+import { omit, partial } from 'lodash';
 import PresenterActions from '../actionTypes/PresenterActionTypes';
 
 // Relays all state changes to the presenter window via postMessage

@@ -2,7 +2,7 @@ import * as presenter from '../PresenterActions';
 import configureStore from 'redux-mock-store';
 import emptyObj from 'empty/object';
 import mute from 'mute';
-import omit from 'lodash/omit';
+import { omit } from 'lodash';
 
 const mockStore = configureStore();
 const mockWindow = () => ({

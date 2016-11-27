@@ -1,7 +1,7 @@
 import ClockActions from '../actionTypes/ClockActionTypes';
 import emptyObj from 'empty/object';
 import formatDuration from '../util/formatDuration';
-import partial from 'lodash/partial';
+import { partial } from 'lodash';
 import present from 'present';
 
 export const IntervalValue = 50;

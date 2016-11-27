@@ -1,4 +1,4 @@
-import assign from 'lodash/assign';
+import { assign } from 'lodash';
 import ClockActions from '../../../shared/actionTypes/ClockActionTypes';
 import { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
