@@ -71,7 +71,7 @@
     "redux-mock-store": "1.2.1",
     "transfer-webpack-plugin": "0.1.4",
     "webpack": "1.13.3",
-    "webpack-bundle-size-analyzer": "2.0.2",
+    "webpack-bundle-size-analyzer": "2.2.0",
     "webpack-dev-middleware": "1.8.4",
     "webpack-hot-middleware": "2.13.2"
   },
