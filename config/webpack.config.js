@@ -30,7 +30,7 @@ var Entries = {
 
 var JSLoaders = {
   default: ['babel'],
-  development: ['react-hot']
+  development: []
 };
 
 var NodeModules = path.join(__dirname, '../node_modules');
