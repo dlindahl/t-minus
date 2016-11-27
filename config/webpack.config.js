@@ -1,15 +1,13 @@
-/* eslint-disable no-var */
-'use strict';
+'use strict'
 
-var CompressionPlugin = require('compression-webpack-plugin');
-var config;
-var env = require('./environment');
-var isProd = env.get('env') === 'production';
-var path = require('path');
-var TransferWebpackPlugin = require('transfer-webpack-plugin');
-var webpack = require('webpack');
+const CompressionPlugin = require('compression-webpack-plugin')
+const env = require('./environment')
+const isProd = env.get('env') === 'production'
+const path = require('path')
+const TransferWebpackPlugin = require('transfer-webpack-plugin')
+const webpack = require('webpack')
 
-var Entries = {
+const Entries = {
   client: {
     default: [
       path.join(env.get('sourcePath'), 'web', 'client')
@@ -26,16 +24,14 @@ var Entries = {
       'webpack-hot-middleware/client'
     ]
   }
-};
+}
 
-var JSLoaders = {
+const JSLoaders = {
   default: ['babel'],
   development: []
-};
+}
 
-var NodeModules = path.join(__dirname, '../node_modules');
-
-var Plugins = {
+const Plugins = {
   default: [
     new TransferWebpackPlugin([
       {
@@ -70,44 +66,44 @@ var Plugins = {
       }
     })
   ]
-};
-
-function defineEnvSpecific(definitions, env) {
-  var set = definitions.default || [];
-  if(env === 'development') {
-    set = (definitions.development || []).concat(set);
-  } else {
-    set = (definitions.nonDevelopment || []).concat(set);
-  }
-  return set;
 }
 
-config = {
+function defineEnvSpecific (definitions, env) {
+  let set = definitions.default || []
+  if (env === 'development') {
+    set = (definitions.development || []).concat(set)
+  } else {
+    set = (definitions.nonDevelopment || []).concat(set)
+  }
+  return set
+}
+
+const config = {
   devtool: isProd ? 'hidden-source-map' : 'cheap-module-source-map',
   entry: {
     client: defineEnvSpecific(Entries.client, env.get('env')),
     presenter: defineEnvSpecific(Entries.presenter, env.get('env'))
   },
+  module: {
+    loaders: [{
+      include: env.get('sourcePath'),
+      loaders: defineEnvSpecific(JSLoaders, env.get('env')),
+      test: /\.jsx?$/
+    }, {
+      loader: 'expose?React',
+      test: require.resolve('react')
+    }]
+  },
   output: {
-    path: env.get('distPath'),
     filename: '[name].js',
+    path: env.get('distPath'),
     publicPath: '/'
   },
   plugins: defineEnvSpecific(Plugins, env.get('env')),
   resolve: {
     alias: {},
     extensions: ['', '.js', '.jsx']
-  },
-  module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      loaders: defineEnvSpecific(JSLoaders, env.get('env')),
-      include: env.get('sourcePath')
-    }, {
-      test: require.resolve('react'),
-      loader: 'expose?React'
-    }]
   }
-};
+}
 
-module.exports = config;
+module.exports = config

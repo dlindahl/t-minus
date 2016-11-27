@@ -1,43 +1,41 @@
-/* eslint-disable no-var */
-'use strict';
+'use strict'
 
-var config;
-var convict = require('convict');
-var path = require('path');
-var Root = path.resolve('.');
+const convict = require('convict')
+const path = require('path')
+const Root = path.resolve('.')
 
-config = convict({
+const config = convict({
   distPath: {
-    doc: 'The path that distributed files are served from',
-    format: String,
     default: path.join(Root, 'dist'),
-    env: 'DIST_PATH'
+    doc: 'The path that distributed files are served from',
+    env: 'DIST_PATH',
+    format: String
   },
   env: {
-    doc: 'The application environment',
-    format: ['production', 'staging', 'development', 'test'],
     default: 'development',
-    env: 'NODE_ENV'
+    doc: 'The application environment',
+    env: 'NODE_ENV',
+    format: ['production', 'staging', 'development', 'test']
   },
   host: {
-    doc: 'Hostname the application runs on',
-    format: 'url',
     default: '0.0.0.0',
-    env: 'HOST'
+    doc: 'Hostname the application runs on',
+    env: 'HOST',
+    format: 'url'
   },
   port: {
-    doc: 'Port the application listens on',
-    format: 'port',
     default: 8030,
-    env: 'PORT'
+    doc: 'Port the application listens on',
+    env: 'PORT',
+    format: 'port'
   },
   sourcePath: {
+    default: path.join(Root, 'src/t-minus-client'),
     doc: 'The path that the source assets are stored in',
-    format: String,
-    default: path.join(Root, 'src/t-minus-client')
+    format: String
   }
-});
+})
 
-config.validate();
+config.validate()
 
-module.exports = config;
+module.exports = config

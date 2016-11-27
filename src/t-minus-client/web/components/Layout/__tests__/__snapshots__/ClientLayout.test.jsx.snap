@@ -31,18 +31,16 @@ exports[`ClientLayout renders the component 1`] = `
         }>
         <svg
           fill="currentColor"
-          height="1em"
+          height={50}
           preserveAspectRatio="xMidYMid meet"
           style={
             Object {
               "color": "#ecf0f1",
-              "height": "50%",
               "verticalAlign": "middle",
-              "width": "100%",
             }
           }
           viewBox="0 0 40 40"
-          width="1em">
+          width={50}>
           <g>
             <path
               d="m8.4 6.6h23.2v5h-9.1v20h-5v-20h-9.1v-5z" />
@@ -352,7 +350,7 @@ exports[`ClientLayout renders the component 1`] = `
     <div
       style={
         Object {
-          "background": undefined,
+          "background": "#bdc3c7",
           "height": 50,
         }
       } />

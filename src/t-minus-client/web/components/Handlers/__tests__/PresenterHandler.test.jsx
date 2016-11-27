@@ -1,8 +1,8 @@
-import configureStore from 'redux-mock-store';
-import emptyObj from 'empty/object';
-import PresenterHandler from '../PresenterHandler';
-import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store'
+import emptyObj from 'empty/object'
+import PresenterHandler from '../PresenterHandler'
+import { Provider } from 'react-redux'
+import renderer from 'react-test-renderer'
 
 const STATES = {
   default: {
@@ -14,35 +14,35 @@ const STATES = {
     },
     meta: emptyObj
   }
-};
-const store = configureStore();
+}
+const store = configureStore()
 
 describe('PresenterHandler', () => {
   it('renders the component', () => {
     // Mute the console
-    const unmockedWarn = console.warn;
-    console.warn = jest.fn();
+    const unmockedWarn = console.warn
+    console.warn = jest.fn()
     const component = renderer.create(
       <Provider store={store(STATES.default)}>
         <PresenterHandler/>
       </Provider>
-    );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-    expect(console.warn).toHaveBeenCalled();
-    console.warn = unmockedWarn;
-  });
+    )
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+    expect(console.warn).toHaveBeenCalled()
+    console.warn = unmockedWarn
+  })
 
   it('indicates that the Presenter is ready', () => {
-    const presenterReady = jest.fn();
-    const component = renderer.create(
+    const presenterReady = jest.fn()
+    renderer.create(
       <Provider store={store(STATES.default)}>
         <PresenterHandler.WrappedComponent
           {...STATES.default}
           presenterReady={presenterReady}
         />
       </Provider>
-    );
-    expect(presenterReady).toHaveBeenCalledWith(window);
-  });
-});
+    )
+    expect(presenterReady).toHaveBeenCalledWith(window)
+  })
+})

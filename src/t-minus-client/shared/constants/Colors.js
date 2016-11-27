@@ -1,3 +1,4 @@
+/* eslint sort-keys: off */
 const Colors = {
   Turquoise: '#1abc9c',
   GreenSea: '#16a085',
@@ -28,6 +29,6 @@ const Colors = {
 
   Concrete: '#95a5a6',
   Asbestos: '#7f8c8d'
-};
+}
 
-export default Colors;
+export default Colors

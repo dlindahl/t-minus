@@ -1,7 +1,7 @@
-import Colors from '../../shared/constants/Colors';
-import { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import TimerSeverity from '../../shared/actionTypes/TimerSeverityTypes';
+import Colors from '../../shared/constants/Colors'
+import { connect } from 'react-redux'
+import { PropTypes } from 'react'
+import TimerSeverity from '../../shared/actionTypes/TimerSeverityTypes'
 
 const theme = {
   [TimerSeverity.TIMER_SEVERITY_CALM]: {
@@ -24,27 +24,24 @@ const theme = {
     secondaryColor: Colors.Pomegranate,
     tertiaryColorcolor: Colors.Alizarin
   }
-};
-
-function getState(state) {
-  return {
-    severity: state.display.severity
-  };
 }
 
-export default function withSeverity(WrappedComponent) {
-  @connect(getState)
-  class SeverityTheme extends Component {
-    render() {
-      return <WrappedComponent {...this.props} {...theme[this.props.severity]}/>
-    }
+function getState (state) {
+  return {
+    severity: state.display.severity
   }
+}
+
+export default function withSeverity (WrappedComponent) {
+  const SeverityTheme = (props) => (
+    <WrappedComponent {...props} {...theme[props.severity]}/>
+  )
   SeverityTheme.propTypes = {
     severity: PropTypes.string
-  };
+  }
   SeverityTheme.defaultProps = {
     severity: TimerSeverity.TIMER_SEVERITY_CALM
-  };
-  SeverityTheme.WrappedComponent = WrappedComponent;
-  return SeverityTheme;
+  }
+  SeverityTheme.WrappedComponent = WrappedComponent
+  return connect(getState)(SeverityTheme)
 }

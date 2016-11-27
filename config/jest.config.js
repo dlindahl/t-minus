@@ -1,2 +1,1 @@
-/* eslint-disable no-var */
-global.React = require('react');
+global.React = require('react')

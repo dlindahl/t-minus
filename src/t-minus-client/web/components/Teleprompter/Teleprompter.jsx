@@ -1,7 +1,6 @@
-import { assign } from 'lodash';
-import Colors from '../../../shared/constants/Colors';
-import { Component, PropTypes } from 'react';
-import withSeverity from '../../decorators/withSeverity';
+import { assign } from 'lodash'
+import { PropTypes } from 'react'
+import withSeverity from '../../decorators/withSeverity'
 
 const baseStyles = {
   empty: {
@@ -26,37 +25,36 @@ const baseStyles = {
     textTransform: 'uppercase',
     transition: 'flex-grow .5s ease-in-out'
   }
-};
+}
 
-@withSeverity
-export default class Teleprompter extends Component {
-  render() {
-    const prompterText = (this.props.text || '').trim();
-    const style =
-      assign(
-        {},
-        baseStyles.root,
-        baseStyles.empty[prompterText === ''],
-        {
-          background: this.props.secondaryColor,
-          color: this.props.primaryColor
-        }
-      );
-    return (
-      <div style={style}>
-        <div data-test-id="prompterText">
-          {prompterText}
-        </div>
+const Teleprompter = (props) => {
+  const prompterText = (props.text || '').trim()
+  const style =
+    assign(
+      {},
+      baseStyles.root,
+      baseStyles.empty[prompterText === ''],
+      {
+        background: props.secondaryColor,
+        color: props.primaryColor
+      }
+    )
+  return (
+    <div style={style}>
+      <div data-test-id="prompterText">
+        {prompterText}
       </div>
-    );
-  }
-};
+    </div>
+  )
+}
 
 Teleprompter.propTypes = {
   primaryColor: PropTypes.string,
   secondaryColor: PropTypes.string,
   text: PropTypes.string
-};
+}
 Teleprompter.defaultProps = {
   text: ''
-};
+}
+
+export default withSeverity(Teleprompter)

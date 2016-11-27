@@ -1,4 +1,4 @@
-import keyMirror from 'keymirror';
+import keyMirror from 'keymirror'
 
 export default keyMirror({
   CLOCK_DATA_ERROR: true,
@@ -11,4 +11,4 @@ export default keyMirror({
   CLOCK_TICK: true,
   CLOCK_TIMER_CHANGED: true,
   CLOCK_UNPAUSED: true
-});
+})

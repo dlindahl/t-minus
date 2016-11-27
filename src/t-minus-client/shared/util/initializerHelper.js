@@ -1,9 +1,9 @@
-import { isFunction } from 'lodash';
+import { isFunction } from 'lodash'
 
-export function runInitializers(initializers, store) {
+export function runInitializers (initializers, store) {
   Object.keys(initializers).forEach((key) => {
-    if(isFunction(initializers[key])) {
-      initializers[key](store);
+    if (isFunction(initializers[key])) {
+      initializers[key](store)
     }
-  });
+  })
 }

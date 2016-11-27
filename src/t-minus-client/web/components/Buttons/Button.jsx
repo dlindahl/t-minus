@@ -1,7 +1,11 @@
-import assign from 'lodash/assign';
-import { PropTypes } from 'react';
+import assign from 'lodash/assign'
+import { PropTypes } from 'react'
 
 const baseStyles = {
+  default: {
+    background: '#bdc3c7',
+    color: '#fff'
+  },
   root: {
     border: 'none',
     borderRadius: 4,
@@ -16,21 +20,18 @@ const baseStyles = {
     paddingTop: 10,
     textAlign: 'center',
     verticalAlign: 'middle'
-  },
-  default: {
-    background: '#bdc3c7',
-    color: '#fff'
   }
-};
+}
 
 const Button = (props) => (
   <button onClick={props.onClick} style={assign(baseStyles.root, baseStyles.default)}>
     {props.children}
   </button>
-);
+)
 
 Button.propTypes = {
-  children: PropTypes.node
-};
+  children: PropTypes.node,
+  onClick: PropTypes.func
+}
 
-export default Button;
+export default Button

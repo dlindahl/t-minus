@@ -1,7 +1,7 @@
 exports[`PresenterActions #handlePresenterMessage initializes the presenter window state when the window is ready 1`] = `
 Array [
   Array [
-    "{\"type\":\"PRESENTER_STATE_CHANGED\",\"payload\":{\"foo\":{\"bar\":\"baz\"}}}",
+    "{\"payload\":{\"foo\":{\"bar\":\"baz\"}},\"type\":\"PRESENTER_STATE_CHANGED\"}",
     "ORIGIN",
   ],
 ]
@@ -27,7 +27,7 @@ Object {
 
 exports[`PresenterActions #presenterReady listens for the presenter window closing 1`] = `
 Array [
-  "{\"type\":\"PRESENTER_WINDOW_CLOSED\",\"payload\":{}}",
+  "{\"payload\":{},\"type\":\"PRESENTER_WINDOW_CLOSED\"}",
   "ORIGIN",
 ]
 `;
@@ -53,7 +53,7 @@ Object {
 exports[`PresenterActions #presenterReady tells the app window that the presenter window is ready 2`] = `
 Array [
   Array [
-    "{\"type\":\"PRESENTER_WINDOW_READY\",\"payload\":{}}",
+    "{\"payload\":{},\"type\":\"PRESENTER_WINDOW_READY\"}",
     "ORIGIN",
   ],
 ]

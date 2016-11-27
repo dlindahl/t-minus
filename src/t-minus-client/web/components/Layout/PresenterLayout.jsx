@@ -1,8 +1,5 @@
-import ClockNav from '../Navigation/ClockNav';
-import Colors from '../../../shared/constants/Colors';
-import DisplayNav from '../Navigation/DisplayNav';
-import TimerProgress from '../Progress/TimerProgress';
-import { PropTypes } from 'react';
+import TimerProgress from '../Progress/TimerProgress'
+import { PropTypes } from 'react'
 
 const baseStyles = {
   app: {
@@ -22,7 +19,7 @@ const baseStyles = {
   root: {
     display: 'flex'
   }
-};
+}
 
 const Layout = (props) => (
   <div style={baseStyles.root}>
@@ -33,10 +30,10 @@ const Layout = (props) => (
       <TimerProgress/>
     </div>
   </div>
-);
+)
 
 Layout.propTypes = {
   children: PropTypes.node
-};
+}
 
-export default Layout;
+export default Layout

@@ -1,8 +1,8 @@
-import ClientLayout from '../ClientLayout';
-import configureStore from 'redux-mock-store';
-import emptyObj from 'empty/object';
-import { Provider } from 'react-redux';
-import renderer from 'react-test-renderer';
+import ClientLayout from '../ClientLayout'
+import configureStore from 'redux-mock-store'
+import emptyObj from 'empty/object'
+import { Provider } from 'react-redux'
+import renderer from 'react-test-renderer'
 
 const STATES = {
   default: {
@@ -10,8 +10,8 @@ const STATES = {
     display: emptyObj,
     meta: emptyObj
   }
-};
-const store = configureStore();
+}
+const store = configureStore()
 
 describe('ClientLayout', () => {
   it('renders the component', () => {
@@ -21,8 +21,8 @@ describe('ClientLayout', () => {
           <div/>
         </ClientLayout>
       </Provider>
-    );
-    const tree = component.toJSON();
-    expect(tree).toMatchSnapshot();
-  });
-});
+    )
+    const tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+})

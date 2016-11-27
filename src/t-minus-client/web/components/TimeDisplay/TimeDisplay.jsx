@@ -1,6 +1,6 @@
-import assign from 'lodash/assign';
-import { Component, PropTypes } from 'react';
-import withSeverity from '../../decorators/withSeverity';
+import assign from 'lodash/assign'
+import { PropTypes } from 'react'
+import withSeverity from '../../decorators/withSeverity'
 
 const baseStyles = {
   microseconds: {
@@ -20,14 +20,14 @@ const baseStyles = {
   root: {
     alignItems: 'center',
     display: 'flex',
+    flex: 1,
     flexDirection: 'column',
     fontFamily: 'Roboto Mono, monospace',
     fontSize: '14vw',
     justifyContent: 'center',
-    flex: 1,
     width: '100%'
   }
-};
+}
 
 const TimeDisplay = (props) => {
   const microsecondsStyle =
@@ -35,13 +35,13 @@ const TimeDisplay = (props) => {
       {},
       baseStyles.microseconds,
       { color: props.tertiaryColor }
-    );
+    )
   const prefixStyle =
     assign(
       {},
       baseStyles.prefix.default,
       baseStyles.prefix[props.hasTimerElapsed]
-    );
+    )
   const style =
     assign(
       {},
@@ -50,7 +50,7 @@ const TimeDisplay = (props) => {
         background: props.secondaryColor,
         color: props.primaryColor
       }
-    );
+    )
   return (
     <div style={style}>
       <div>
@@ -73,25 +73,25 @@ const TimeDisplay = (props) => {
         </span>
       </div>
     </div>
-  );
-};
+  )
+}
 
 TimeDisplay.propTypes = {
   hasTimerElapsed: PropTypes.bool,
   hours: PropTypes.string,
-  minutes: PropTypes.string,
-  seconds: PropTypes.string,
   microseconds: PropTypes.string,
+  minutes: PropTypes.string,
   primaryColor: PropTypes.string,
   secondaryColor: PropTypes.string,
+  seconds: PropTypes.string,
   tertiaryColor: PropTypes.string
-};
+}
 TimeDisplay.defaultProps = {
   hasTimerElapsed: false,
   hours: '--',
+  microseconds: '----',
   minutes: '--',
-  seconds: '--',
-  microseconds: '----'
-};
+  seconds: '--'
+}
 
-export default withSeverity(TimeDisplay);
+export default withSeverity(TimeDisplay)

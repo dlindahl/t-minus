@@ -1,28 +1,26 @@
-import { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import ClientLayout from '../Layout/ClientLayout';
-import Teleprompter from '../Teleprompter/Teleprompter';
-import TimeDisplay from '../TimeDisplay/TimeDisplay';
+import { PropTypes } from 'react'
+import { connect } from 'react-redux'
+import ClientLayout from '../Layout/ClientLayout'
+import Teleprompter from '../Teleprompter/Teleprompter'
+import TimeDisplay from '../TimeDisplay/TimeDisplay'
 
-function getState(state) {
+function getState (state) {
   return {
     display: state.display,
     percentComplete: state.clock.percentComplete
-  };
-}
-
-@connect(getState)
-export default class ClientHandler extends Component {
-  render() {
-    return (
-      <ClientLayout percentComplete={this.props.percentComplete}>
-        <TimeDisplay {...this.props.display}/>
-        <Teleprompter text={this.props.display.teleprompter}/>
-      </ClientLayout>
-    );
   }
 }
 
+const ClientHandler = (props) => (
+  <ClientLayout percentComplete={props.percentComplete}>
+    <TimeDisplay {...props.display}/>
+    <Teleprompter text={props.display.teleprompter}/>
+  </ClientLayout>
+)
+
 ClientHandler.propTypes = {
-  display: PropTypes.object
-};
+  display: PropTypes.object,
+  percentComplete: PropTypes.number
+}
+
+export default connect(getState)(ClientHandler)

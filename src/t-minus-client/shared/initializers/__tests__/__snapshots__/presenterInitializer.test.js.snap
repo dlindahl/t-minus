@@ -1,0 +1,6 @@
+exports[`presenterInitializer relays all state changes to the presenter window when not presenting 1`] = `
+Array [
+  "{\"payload\":{\"foo\":{\"bar\":true}},\"type\":\"PRESENTER_STATE_CHANGED\"}",
+  "ORIGIN",
+]
+`;

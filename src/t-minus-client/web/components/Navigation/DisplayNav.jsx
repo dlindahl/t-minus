@@ -1,6 +1,6 @@
-import AppNavBar from './AppNavBar';
-import SpawnPresenterWindowButton from '../Buttons/SpawnPresenterWindowButton';
-import TeleprompterInput from '../Teleprompter/TeleprompterInput';
+import AppNavBar from './AppNavBar'
+import SpawnPresenterWindowButton from '../Buttons/SpawnPresenterWindowButton'
+import TeleprompterInput from '../Teleprompter/TeleprompterInput'
 
 const DisplayNav = (props) => (
   <AppNavBar direction="row">
@@ -8,6 +8,6 @@ const DisplayNav = (props) => (
     &nbsp;
     <SpawnPresenterWindowButton/>
   </AppNavBar>
-);
+)
 
-export default DisplayNav;
+export default DisplayNav
