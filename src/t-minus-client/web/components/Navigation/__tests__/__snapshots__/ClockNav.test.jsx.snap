@@ -25,7 +25,6 @@ exports[`ClockNav renders the component 1`] = `
       }>
       <svg
         fill="currentColor"
-        fit={true}
         height="1em"
         preserveAspectRatio="xMidYMid meet"
         style={
@@ -68,11 +67,11 @@ exports[`ClockNav renders the component 1`] = `
         }>
         <svg
           fill="currentColor"
-          fit={true}
           height="1em"
           preserveAspectRatio="xMidYMid meet"
           style={
             Object {
+              "color": undefined,
               "verticalAlign": "top",
             }
           }
@@ -109,11 +108,11 @@ exports[`ClockNav renders the component 1`] = `
         }>
         <svg
           fill="currentColor"
-          fit={true}
           height="1em"
           preserveAspectRatio="xMidYMid meet"
           style={
             Object {
+              "color": undefined,
               "verticalAlign": "top",
             }
           }
@@ -151,11 +150,11 @@ exports[`ClockNav renders the component 1`] = `
         <svg
           data-test-id="PlayArrow"
           fill="currentColor"
-          fit={true}
           height="1em"
           preserveAspectRatio="xMidYMid meet"
           style={
             Object {
+              "color": undefined,
               "verticalAlign": "top",
             }
           }
@@ -200,11 +199,11 @@ exports[`ClockNav renders the component 1`] = `
         }>
         <svg
           fill="currentColor"
-          fit={true}
           height="1em"
           preserveAspectRatio="xMidYMid meet"
           style={
             Object {
+              "color": undefined,
               "verticalAlign": "top",
             }
           }

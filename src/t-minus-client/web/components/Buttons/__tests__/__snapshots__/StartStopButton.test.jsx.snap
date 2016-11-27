@@ -18,11 +18,11 @@ exports[`StartStopButton is active when the clock that is running 1`] = `
   <svg
     data-test-id="Pause"
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
@@ -56,11 +56,11 @@ exports[`StartStopButton renders a label that reflects a clock that has started 
   <svg
     data-test-id="PlayArrow"
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
@@ -94,11 +94,11 @@ exports[`StartStopButton renders a label that reflects a clock that is running 1
   <svg
     data-test-id="Pause"
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
@@ -132,11 +132,11 @@ exports[`StartStopButton renders the component 1`] = `
   <svg
     data-test-id="PlayArrow"
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }

@@ -16,11 +16,11 @@ exports[`AppNavButton renders a disabled component 1`] = `
   }>
   <svg
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
@@ -52,11 +52,11 @@ exports[`AppNavButton renders an active component 1`] = `
   }>
   <svg
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
@@ -88,11 +88,11 @@ exports[`AppNavButton renders an enabled component 1`] = `
   }>
   <svg
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
@@ -124,11 +124,11 @@ exports[`AppNavButton renders an inactive component 1`] = `
   }>
   <svg
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
@@ -160,11 +160,11 @@ exports[`AppNavButton renders the component 1`] = `
   }>
   <svg
     fill="currentColor"
-    fit={true}
     height="1em"
     preserveAspectRatio="xMidYMid meet"
     style={
       Object {
+        "color": undefined,
         "verticalAlign": "top",
       }
     }
