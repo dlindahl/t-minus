@@ -24,9 +24,11 @@ const Dimensions = {
   column: 'width',
   row: 'height'
 }
+const NonBreakingSpace = 160
+const StringStart = 0
 
 function itemize (node) {
-  if (isString(node) && node.charCodeAt(0) === 160) {
+  if (isString(node) && node.charCodeAt(StringStart) === NonBreakingSpace) {
     return <li style={baseStyles.filler}>{node}</li>
   }
   return <li style={baseStyles.item}>{node}</li>

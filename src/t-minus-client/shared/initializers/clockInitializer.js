@@ -2,9 +2,13 @@ import { changeTimerValue, stopwatchMode, timerMode } from '../actions/ClockActi
 import ClockActions from '../actionTypes/ClockActionTypes'
 
 const DefaultInitialMode = ClockActions.CLOCK_MODE_STOPWATCH
-const DefaultInitialTimerValue = 3 * 60 * 1000
+const DefaultInitialTimerValue = 180000 // 3 * 60 * 1000
 
-export default function clockInitializer (store, initialTimerValue = DefaultInitialTimerValue, initialMode = DefaultInitialMode) {
+export default function clockInitializer (
+  store,
+  initialTimerValue = DefaultInitialTimerValue,
+  initialMode = DefaultInitialMode
+) {
   if (!store) {
     return
   }

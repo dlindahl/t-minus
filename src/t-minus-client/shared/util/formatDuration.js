@@ -1,15 +1,22 @@
+const HoursInDay = 24
+const MinutesInHour = 60
+const SecondsInMinute = 60
+const MillisecondsInSecond = 1000
+const DefaultValue = 0
+const FractionalPartOfNum = 1
+
 export default function formatDuration (duration) {
   let d, h, m, ms, s
-  d = h = m = s = ms = 0
+  d = h = m = s = ms = DefaultValue
   if (duration) {
-    ms = Math.abs(Math.floor(((duration / 1000) % 1) * 1000))
-    s = Math.abs(Math.floor(duration / 1000))
-    m = Math.abs(Math.floor(s / 60))
-    s = s % 60
-    h = Math.abs(Math.floor(m / 60))
-    m = m % 60
-    d = Math.abs(Math.floor(h / 24))
-    h = h % 24
+    ms = Math.abs(Math.floor(((duration / MillisecondsInSecond) % FractionalPartOfNum) * MillisecondsInSecond))
+    s = Math.abs(Math.floor(duration / MillisecondsInSecond))
+    m = Math.abs(Math.floor(s / SecondsInMinute))
+    s = s % SecondsInMinute
+    h = Math.abs(Math.floor(m / MinutesInHour))
+    m = m % MinutesInHour
+    d = Math.abs(Math.floor(h / HoursInDay))
+    h = h % HoursInDay
   }
   return { d, h, m, ms, s }
 }

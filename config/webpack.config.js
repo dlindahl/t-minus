@@ -1,12 +1,13 @@
+/* eslint no-ternary: off */
 'use strict'
 
 const CompressionPlugin = require('compression-webpack-plugin')
 const env = require('./environment')
-const isProd = env.get('env') === 'production'
 const path = require('path')
 const TransferWebpackPlugin = require('transfer-webpack-plugin')
 const webpack = require('webpack')
 
+const isProd = env.get('env') === 'production'
 const Entries = {
   client: {
     default: [
@@ -68,9 +69,9 @@ const Plugins = {
   ]
 }
 
-function defineEnvSpecific (definitions, env) {
+function defineEnvSpecific (definitions, currentEnv) {
   let set = definitions.default || []
-  if (env === 'development') {
+  if (currentEnv === 'development') {
     set = (definitions.development || []).concat(set)
   } else {
     set = (definitions.nonDevelopment || []).concat(set)

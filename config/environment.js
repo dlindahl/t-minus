@@ -2,8 +2,8 @@
 
 const convict = require('convict')
 const path = require('path')
-const Root = path.resolve('.')
 
+const Root = path.resolve('.')
 const config = convict({
   distPath: {
     default: path.join(Root, 'dist'),

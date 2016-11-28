@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux'
 import ClockActions from '../../../shared/actionTypes/ClockActionTypes'
 import { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import Schedule from 'react-icons/lib/md/Schedule'
+import Schedule from 'react-icons/lib/md/schedule'
 import { stopwatchMode } from '../../../shared/actions/ClockActions'
 
 function getState (state) {

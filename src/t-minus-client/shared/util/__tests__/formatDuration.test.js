@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import formatDuration from '../formatDuration'
 
 describe('formatDuration', () => {

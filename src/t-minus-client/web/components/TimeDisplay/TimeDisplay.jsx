@@ -1,4 +1,4 @@
-import assign from 'lodash/assign'
+import { assign } from 'lodash'
 import { PropTypes } from 'react'
 import withSeverity from '../../decorators/withSeverity'
 

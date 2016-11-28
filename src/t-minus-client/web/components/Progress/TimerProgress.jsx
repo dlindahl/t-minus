@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import withSeverity from '../../decorators/withSeverity'
 
 const DefaultHeight = 50
+const MaxWidthPercentage = 100
 
 const baseStyles = {
   empty: {
@@ -45,7 +46,7 @@ const TimerProgress = (props) => {
       baseStyles.progress,
       {
         background: props.tertiaryColor,
-        width: `${props.percentComplete * 100}%`
+        width: `${props.percentComplete * MaxWidthPercentage}%`
       }
     )
   return (

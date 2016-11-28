@@ -1,4 +1,4 @@
-import assign from 'lodash/assign'
+import { assign } from 'lodash'
 import { bindActionCreators } from 'redux'
 import Colors from '../../../shared/constants/Colors'
 import { Component, PropTypes } from 'react'
@@ -34,6 +34,8 @@ const baseStyles = {
     textAlign: 'left'
   }
 }
+const DefaultSelectionStart = 0
+const MinInputWidth = 3
 
 function getActions (dispatch) {
   return bindActionCreators({ setTeleprompterValue }, dispatch)
@@ -69,7 +71,7 @@ export default class TeleprompterInput extends Component {
     const inputField = this.inputField
     e.preventDefault()
     this.props.setTeleprompterValue(this.state.value)
-    inputField.setSelectionRange(0, this.state.value.length)
+    inputField.setSelectionRange(DefaultSelectionStart, this.state.value.length)
   }
   render () {
     const inputStyle =
@@ -77,7 +79,7 @@ export default class TeleprompterInput extends Component {
         {},
         baseStyles.input.default,
         baseStyles.input.focus[this.state.focus],
-        { width: `${this.state.value.length + 3}ch` }
+        { width: `${this.state.value.length + MinInputWidth}ch` }
       )
     return (
       <form onSubmit={this.handleSubmit} style={baseStyles.root}>

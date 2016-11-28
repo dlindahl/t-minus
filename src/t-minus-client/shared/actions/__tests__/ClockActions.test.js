@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import * as clock from '../ClockActions'
 import configureStore from 'redux-mock-store'
 import emptyObj from 'empty/object'

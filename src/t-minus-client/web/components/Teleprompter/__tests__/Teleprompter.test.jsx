@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import ConnectedTeleprompter from '../Teleprompter'
 import { shallow } from 'enzyme'
 

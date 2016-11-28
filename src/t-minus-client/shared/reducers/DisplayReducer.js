@@ -4,13 +4,24 @@ import PresenterActions from '../actionTypes/PresenterActionTypes'
 import TeleprompterActions from '../actionTypes/TeleprompterActionTypes'
 import TimerSeverity from '../actionTypes/TimerSeverityTypes'
 
+const CriticalPercentMin = 0.9
+const CriticalTimeMin = 0
+const DangerPercentMax = 0.9
+const DangerPercentMin = 0.8
+const DangerTimeMin = 30000 // 30 * 1000
 const DefaultSeverity = TimerSeverity.TIMER_SEVERITY_CALM
+const MinTimerValue = 120000 // 2 * 60 * 1000
+const PadWidthSmall = 2
+const PadWidthLarge = 4
 const UnknownModeFormat = {
   hours: '--',
   microseconds: '----',
   minutes: '--',
   seconds: '--'
 }
+const WarnPercentMax = 0.8
+const WarnPercentMin = 0.75
+const WarnTimeMin = 60000 // 1 * 60 * 1000
 
 function initialState () {
   return assign({}, formatDisplay(), {
@@ -26,27 +37,29 @@ function calculateSeverity (state = {}, payload = {}) {
   if (payload.mode !== ClockActions.CLOCK_MODE_TIMER) {
     return DefaultSeverity
   }
-  // Use percentage based severity calculation if the timer is below the
-  // threshold for fixed breakpoints
-  if (state.timerValue <= 2 * 60 * 1000) {
+  /*
+  Use percentage based severity calculation if the timer is below the
+  threshold for fixed breakpoints
+  */
+  if (state.timerValue <= MinTimerValue) {
     const completeness = payload.elapsedTime / state.timerValue
     switch (true) {
-      case inRange(completeness, 0.75, 0.8):
+      case inRange(completeness, WarnPercentMin, WarnPercentMax):
         return TimerSeverity.TIMER_SEVERITY_WARN
-      case inRange(completeness, 0.8, 0.9):
+      case inRange(completeness, DangerPercentMin, DangerPercentMax):
         return TimerSeverity.TIMER_SEVERITY_DANGER
-      case completeness >= 0.9:
+      case completeness >= CriticalPercentMin:
         return TimerSeverity.TIMER_SEVERITY_CRITICAL
       default:
         return DefaultSeverity
     }
   }
   switch (true) {
-    case payload.timeRemaining < 0:
+    case payload.timeRemaining < CriticalTimeMin:
       return TimerSeverity.TIMER_SEVERITY_CRITICAL
-    case payload.timeRemaining < 30 * 1000:
+    case payload.timeRemaining < DangerTimeMin:
       return TimerSeverity.TIMER_SEVERITY_DANGER
-    case payload.timeRemaining < 1 * 60 * 1000:
+    case payload.timeRemaining < WarnTimeMin:
       return TimerSeverity.TIMER_SEVERITY_WARN
     default:
       return DefaultSeverity
@@ -59,10 +72,10 @@ function formatDisplay (payload = {}) {
   }
   const duration = payload.duration || {}
   return {
-    hours: padStart(duration.h, 2, '0'),
-    microseconds: padEnd(duration.ms, 4, '0'),
-    minutes: padStart(duration.m, 2, '0'),
-    seconds: padStart(duration.s, 2, '0')
+    hours: padStart(duration.h, PadWidthSmall, '0'),
+    microseconds: padEnd(duration.ms, PadWidthLarge, '0'),
+    minutes: padStart(duration.m, PadWidthSmall, '0'),
+    seconds: padStart(duration.s, PadWidthSmall, '0')
   }
 }
 

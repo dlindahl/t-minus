@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import ConnectedTimeDisplay from '../TimeDisplay'
 import { shallow } from 'enzyme'
 

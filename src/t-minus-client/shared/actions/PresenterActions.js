@@ -15,8 +15,10 @@ function parseEventData (data = '{}') {
   return data
 }
 
-// Initializes the Presenter View's app state so that its in sync with the
-// Client Window. Omits the `meta` reducer to avoid circular references.
+/*
+ Initializes the Presenter View's app state so that its in sync with the
+ Client Window. Omits the `meta` reducer to avoid circular references.
+*/
 function initPresenterState (appWindow, store) {
   const state = store.getState()
   state.meta.presenterWin.postMessage(JSON.stringify({
@@ -27,20 +29,23 @@ function initPresenterState (appWindow, store) {
 
 export function handlePresenterMessage (appWindow, store, event) {
   if (event.origin !== appWindow.location.origin) {
-    return
+    return emptyObj
   }
   const data = parseEventData(event.data)
   switch (data.type) {
     case PresenterActions.PRESENTER_WINDOW_READY:
-      return initPresenterState(appWindow, store)
+      initPresenterState(appWindow, store)
+      return emptyObj
     default:
       // Dispatch all other postMessage events into the Redux store
       return store.dispatch(data)
   }
 }
 
-// Tells the Client Window that the Presenter app has mounted and is ready to
-// receive state and messages
+/*
+ Tells the Client Window that the Presenter app has mounted and is ready to
+ receive state and messages
+*/
 export function presenterReady (presenterWin) {
   if (!presenterWin.opener) {
     console.warn('Client Window not found, cannot notify Presenter is ready!')

@@ -1,12 +1,13 @@
 const config = require('../../config/webpack.config')
 const env = require('../../config/environment')
-const plugins = []
 const webpack = require('webpack')
+
+const plugins = []
 
 if (env.get('env') === 'development') {
   plugins.push({
     options: {
-      assets: { // webpack-dev-middleware options
+      assets: { // See also: webpack-dev-middleware
         historyApiFallback: true,
         hot: true,
         noInfo: true,

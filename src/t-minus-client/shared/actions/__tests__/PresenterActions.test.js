@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import * as presenter from '../PresenterActions'
 import configureStore from 'redux-mock-store'
 import emptyObj from 'empty/object'

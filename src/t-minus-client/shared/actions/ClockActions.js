@@ -6,16 +6,18 @@ import present from 'present'
 
 export const IntervalValue = 50
 let interval = null
+const PercentCompleteMax = 1
+const ElapsedTimeMin = 0
 
 function calculateDuration (mode, elapsedTime, maxDuration) {
   switch (mode) {
     case ClockActions.CLOCK_MODE_TIMER: {
       const timeRemaining = maxDuration - elapsedTime
-      const percentComplete = Math.min(elapsedTime / maxDuration, 1)
+      const percentComplete = Math.min(elapsedTime / maxDuration, PercentCompleteMax)
       return [formatDuration(timeRemaining), timeRemaining, percentComplete]
     }
     default:
-      return [formatDuration(elapsedTime), null, 1]
+      return [formatDuration(elapsedTime), null, PercentCompleteMax]
   }
 }
 
@@ -65,7 +67,8 @@ export function resetClock () {
     const { clock } = getState()
     clearInterval(interval)
     interval = null
-    const [duration, timeRemaining, percentComplete] = calculateDuration(clock.mode, 0, clock.timerValue)
+    const [duration, timeRemaining, percentComplete] =
+      calculateDuration(clock.mode, ElapsedTimeMin, clock.timerValue)
     return dispatch({
       payload: {
         duration,
@@ -81,7 +84,8 @@ export function resetClock () {
 export function startClock () {
   return (dispatch, getState) => {
     const { clock } = getState()
-    const [duration, timeRemaining, percentComplete] = calculateDuration(clock.mode, clock.elapsedTime, clock.timerDuration)
+    const [duration, timeRemaining, percentComplete] =
+      calculateDuration(clock.mode, clock.elapsedTime, clock.timerDuration)
     dispatch({
       payload: {
         duration,
@@ -98,7 +102,7 @@ export function startClock () {
 export function changeTimerValue (timerValue) {
   return (dispatch, getState) => {
     const { clock } = getState()
-    const [duration, timeRemaining, percentComplete] = calculateDuration(clock.mode, 0, timerValue)
+    const [duration, timeRemaining, percentComplete] = calculateDuration(clock.mode, ElapsedTimeMin, timerValue)
     return dispatch({
       payload: { duration, percentComplete, timeRemaining, timerValue },
       type: ClockActions.CLOCK_TIMER_CHANGED
@@ -108,7 +112,7 @@ export function changeTimerValue (timerValue) {
 
 export function stopwatchMode () {
   const mode = ClockActions.CLOCK_MODE_STOPWATCH
-  const [duration, timeRemaining, percentComplete] = calculateDuration(mode, 0)
+  const [duration, timeRemaining, percentComplete] = calculateDuration(mode, ElapsedTimeMin)
   return {
     payload: {
       duration,
@@ -124,7 +128,7 @@ export function timerMode () {
   return (dispatch, getState) => {
     const { clock } = getState()
     const mode = ClockActions.CLOCK_MODE_TIMER
-    const [duration, timeRemaining, percentComplete] = calculateDuration(mode, 0, clock.timerValue)
+    const [duration, timeRemaining, percentComplete] = calculateDuration(mode, ElapsedTimeMin, clock.timerValue)
     return dispatch({
       payload: {
         duration,

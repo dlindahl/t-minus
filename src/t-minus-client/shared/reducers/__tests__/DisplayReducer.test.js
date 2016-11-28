@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import ClockActions from '../../actionTypes/ClockActionTypes'
 import reducer from '../DisplayReducer'
 import PresenterActions from '../../actionTypes/PresenterActionTypes'

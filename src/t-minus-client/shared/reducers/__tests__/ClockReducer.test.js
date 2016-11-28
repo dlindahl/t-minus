@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import ClockActions from '../../actionTypes/ClockActionTypes'
 import emptyObj from 'empty/object'
 import present from 'present'

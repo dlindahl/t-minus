@@ -1,3 +1,4 @@
+/* eslint no-magic-numbers: off */
 import * as teleprompter from '../TeleprompterActions'
 import configureStore from 'redux-mock-store'
 
