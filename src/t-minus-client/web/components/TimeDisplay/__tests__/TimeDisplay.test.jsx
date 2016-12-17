@@ -32,24 +32,24 @@ describe('TimeDisplay', () => {
     expect(component.find('[data-test-id="prefix"]').node.props.style.opacity).toBe(1)
   })
 
-  it('applies the :primaryColor prop', () => {
+  it('applies the :textPrimaryColor prop', () => {
     const component = shallow(
-      <TimeDisplay primaryColor="red"/>
+      <TimeDisplay textPrimaryColor="red"/>
     )
     expect(component.node.props.style.color).toBe('red')
   })
 
-  it('applies the :secondaryColor prop', () => {
+  it('applies the :backgroundPrimaryColor prop', () => {
     const component = shallow(
-      <TimeDisplay secondaryColor="green"/>
+      <TimeDisplay backgroundPrimaryColor="green"/>
     )
     expect(component.node.props.style.background).toBe('green')
   })
 
-  it('applies the :tertiaryColor prop', () => {
+  it('applies the :textTertiaryColor prop', () => {
     const component = shallow(
-      <TimeDisplay tertiaryColor="yellow"/>
+      <TimeDisplay textTertiaryColor="blue"/>
     )
-    expect(component.find('[data-test-id="microseconds"]').node.props.style.color).toBe('yellow')
+    expect(component.find('[data-test-id="microseconds"]').node.props.style.color).toBe('blue')
   })
 })

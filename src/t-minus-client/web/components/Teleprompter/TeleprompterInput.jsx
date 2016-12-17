@@ -1,41 +1,61 @@
 import { assign } from 'lodash'
 import { bindActionCreators } from 'redux'
-import Colors from '../../../shared/constants/Colors'
 import { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { setTeleprompterValue } from '../../../shared/actions/TeleprompterActions'
 
 const baseStyles = {
+  fauxCursor: {
+    default: {
+      borderLeftStyle: 'solid',
+      borderLeftWidth: 2,
+      display: 'inline-block',
+      height: '1.25em',
+      marginLeft: 5
+    },
+    focus: {
+      [false]: {
+        animation: '1s blink step-end infinite'
+      },
+      [true]: {
+        borderLeftColor: 'transparent'
+      }
+    },
+    hasInput: {
+      [true]: {
+        animation: 'none',
+        borderLeftColor: 'transparent'
+      }
+    }
+  },
   input: {
     default: {
       background: 'transparent',
       border: 'none',
-      color: Colors.Clouds,
       display: 'inline-block',
+      flex: 1,
       fontSize: 18,
       fontWeight: 200,
-      height: '100%',
-      maxWidth: '75vw',
-      minWidth: '25ch',
+      outlineWidth: 'thin',
       overflow: 'hidden',
       padding: 5
-    },
-    focus: {
-      [false]: {
-        background: 'transparent'
-      },
-      [true]: {
-        background: Colors.WetAsphalt
-      }
     }
   },
+  label: {
+    fontFamily: 'Roboto Mono, monospace',
+    textTransform: 'uppercase'
+  },
   root: {
+    alignItems: 'center',
+    display: 'flex',
     height: '100%',
-    textAlign: 'left'
+    paddingBottom: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 5
   }
 }
 const DefaultSelectionStart = 0
-const MinInputWidth = 3
 
 function getActions (dispatch) {
   return bindActionCreators({ setTeleprompterValue }, dispatch)
@@ -63,6 +83,11 @@ export default class TeleprompterInput extends Component {
   }
   handleFocus () {
     this.setState({ focus: true })
+    const inputField = this.inputField
+    if (inputField) {
+      // TODO: Find a way to test this
+      inputField.setSelectionRange(DefaultSelectionStart, this.state.value.length)
+    }
   }
   handleRefUpdate (component) {
     this.inputField = component
@@ -76,26 +101,58 @@ export default class TeleprompterInput extends Component {
   render () {
     const inputStyle =
       assign(
-        {},
-        baseStyles.input.default,
-        baseStyles.input.focus[this.state.focus],
-        { width: `${this.state.value.length + MinInputWidth}ch` }
+        {
+          color: this.props.inputColor,
+          outlineColor: this.props.inputColor
+        },
+        baseStyles.input.default
+      )
+    const fauxCursorStyle =
+      assign(
+        {
+          borderLeftColor: this.props.labelColor
+        },
+        baseStyles.fauxCursor.default,
+        baseStyles.fauxCursor.focus[this.state.focus],
+        baseStyles.fauxCursor.hasInput[!!this.state.value.trim()]
+      )
+    const labelStyle =
+      assign(
+        {
+          color: this.props.labelColor
+        },
+        baseStyles.label
+      )
+    const rootStyle =
+      assign(
+        {
+          background: this.props.backgroundColor
+        },
+        baseStyles.root
       )
     return (
-      <form onSubmit={this.handleSubmit} style={baseStyles.root}>
-        <input
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          onFocus={this.handleFocus}
-          placeholder="Enter text for teleprompter..."
-          ref={this.handleRefUpdate}
-          style={inputStyle}
-        />
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit} style={rootStyle}>
+          <label style={labelStyle}>
+            Teleprompter:&gt;
+          </label>
+          <span style={fauxCursorStyle}/>
+          <input
+            onBlur={this.handleBlur}
+            onChange={this.handleChange}
+            onFocus={this.handleFocus}
+            ref={this.handleRefUpdate}
+            style={inputStyle}
+          />
+        </form>
+      </div>
     )
   }
 }
 
 TeleprompterInput.propTypes = {
+  backgroundColor: PropTypes.string,
+  inputColor: PropTypes.string,
+  labelColor: PropTypes.string,
   setTeleprompterValue: PropTypes.func
 }

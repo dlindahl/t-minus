@@ -1,28 +1,39 @@
-import Colors from '../../shared/constants/Colors'
 import { connect } from 'react-redux'
 import { PropTypes } from 'react'
 import TimerSeverity from '../../shared/actionTypes/TimerSeverityTypes'
 
 const theme = {
   [TimerSeverity.TIMER_SEVERITY_CALM]: {
-    primaryColor: Colors.MidnightBlue,
-    secondaryColor: Colors.Silver,
-    tertiaryColor: Colors.Concrete
+    backgroundPrimaryColor: 'var(--Clouds)',
+    backgroundSecondaryColor: 'var(--Concrete)',
+    textPrimaryColor: 'var(--MidnightBlue)',
+    textQuaternaryColor: 'var(--Clouds-Dark)',
+    textSecondaryColor: 'var(--Concrete)',
+    textTertiaryColor: 'var(--Silver)'
   },
   [TimerSeverity.TIMER_SEVERITY_WARN]: {
-    primaryColor: Colors.MidnightBlue,
-    secondaryColor: Colors.SunFlower,
-    tertiaryColor: Colors.Orange
+    backgroundPrimaryColor: 'var(--SunFlower)',
+    backgroundSecondaryColor: 'var(--Orange)',
+    textPrimaryColor: 'var(--MidnightBlue)',
+    textQuaternaryColor: 'var(--SunFlower-Dark)',
+    textSecondaryColor: 'var(--Pumpkin)',
+    textTertiaryColor: 'var(--Orange)'
   },
   [TimerSeverity.TIMER_SEVERITY_DANGER]: {
-    primaryColor: Colors.MidnightBlue,
-    secondaryColor: Colors.Alizarin,
-    tertiaryColor: Colors.Pomegranate
+    backgroundPrimaryColor: 'var(--Alizarin)',
+    backgroundSecondaryColor: 'var(--Pomegranate)',
+    textPrimaryColor: 'var(--MidnightBlue)',
+    textQuaternaryColor: 'var(--Alizarin-Dark)',
+    textSecondaryColor: 'var(--Pomegranate-Dark)',
+    textTertiaryColor: 'var(--Pomegranate)'
   },
   [TimerSeverity.TIMER_SEVERITY_CRITICAL]: {
-    primaryColor: Colors.Clouds,
-    secondaryColor: Colors.Pomegranate,
-    tertiaryColorcolor: Colors.Alizarin
+    backgroundPrimaryColor: 'var(--Pomegranate)',
+    backgroundSecondaryColor: 'var(--Alizarin)',
+    textPrimaryColor: 'var(--Clouds)',
+    textQuaternaryColor: 'var(--Pomegranate-Dark)',
+    textSecondaryColor: 'var(--Alizarin-Light)',
+    textTertiaryColor: 'var(--Alizarin)'
   }
 }
 

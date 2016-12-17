@@ -1,27 +1,23 @@
 exports[`withSeverity passes in appropriate theme colors when the severity state is TIMER_SEVERITY_CALM 1`] = `
 <div
-  primaryColor="#2c3e50"
-  secondaryColor="#bdc3c7"
-  tertiaryColor="#95a5a6" />
+  backgroundPrimaryColor="var(--Clouds)"
+  backgroundSecondaryColor="var(--Concrete)" />
 `;
 
 exports[`withSeverity passes in appropriate theme colors when the severity state is TIMER_SEVERITY_CRITICAL 1`] = `
 <div
-  primaryColor="#ecf0f1"
-  secondaryColor="#c0392b"
-  tertiaryColor={undefined} />
+  backgroundPrimaryColor="var(--Pomegranate)"
+  backgroundSecondaryColor="var(--Alizarin)" />
 `;
 
 exports[`withSeverity passes in appropriate theme colors when the severity state is TIMER_SEVERITY_DANGER 1`] = `
 <div
-  primaryColor="#2c3e50"
-  secondaryColor="#e74c3c"
-  tertiaryColor="#c0392b" />
+  backgroundPrimaryColor="var(--Alizarin)"
+  backgroundSecondaryColor="var(--Pomegranate)" />
 `;
 
 exports[`withSeverity passes in appropriate theme colors when the severity state is TIMER_SEVERITY_WARN 1`] = `
 <div
-  primaryColor="#2c3e50"
-  secondaryColor="#f1c40f"
-  tertiaryColor="#f39c12" />
+  backgroundPrimaryColor="var(--SunFlower)"
+  backgroundSecondaryColor="var(--Orange)" />
 `;

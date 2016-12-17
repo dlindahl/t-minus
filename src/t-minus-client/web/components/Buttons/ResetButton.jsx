@@ -20,7 +20,7 @@ export default class ResetButton extends Component {
   }
   render () {
     return (
-      <AppNavButton onClick={this.handleClick}>
+      <AppNavButton label="Reset" onClick={this.handleClick}>
         <AutoRenew/>
       </AppNavButton>
     )

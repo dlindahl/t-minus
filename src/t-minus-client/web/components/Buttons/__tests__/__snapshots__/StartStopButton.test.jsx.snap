@@ -1,18 +1,17 @@
 exports[`StartStopButton is active when the clock that is running 1`] = `
 <button
-  disabled={false}
   onClick={[Function]}
   style={
     Object {
-      "background": "#34495e",
+      "background": "transparent",
       "border": 0,
-      "color": "#ecf0f1",
+      "color": "var(--Concrete)",
       "cursor": "pointer",
       "fontSize": "2rem",
       "height": 50,
       "lineHeight": 1,
+      "minWidth": 50,
       "padding": 0,
-      "width": 50,
     }
   }>
   <svg
@@ -33,24 +32,36 @@ exports[`StartStopButton is active when the clock that is running 1`] = `
         d="m23.4 8.4h6.6v23.2h-6.6v-23.2z m-13.4 23.2v-23.2h6.6v23.2h-6.6z" />
     </g>
   </svg>
+  <br />
+  <div
+    style={
+      Object {
+        "color": "var(--Concrete)",
+        "fontFamily": "Roboto Mono, monospace",
+        "fontSize": ".8rem",
+        "lineHeight": 1.5,
+        "textTransform": "uppercase",
+      }
+    }>
+    Pause
+  </div>
 </button>
 `;
 
 exports[`StartStopButton renders a label that reflects a clock that has started 1`] = `
 <button
-  disabled={false}
   onClick={[Function]}
   style={
     Object {
       "background": "transparent",
       "border": 0,
-      "color": "#bdc3c7",
+      "color": "var(--Silver)",
       "cursor": "pointer",
       "fontSize": "2rem",
       "height": 50,
       "lineHeight": 1,
+      "minWidth": 50,
       "padding": 0,
-      "width": 50,
     }
   }>
   <svg
@@ -71,24 +82,36 @@ exports[`StartStopButton renders a label that reflects a clock that has started 
         d="m13.4 8.4l18.2 11.6-18.2 11.6v-23.2z" />
     </g>
   </svg>
+  <br />
+  <div
+    style={
+      Object {
+        "color": "var(--Silver)",
+        "fontFamily": "Roboto Mono, monospace",
+        "fontSize": ".8rem",
+        "lineHeight": 1.5,
+        "textTransform": "uppercase",
+      }
+    }>
+    Start
+  </div>
 </button>
 `;
 
 exports[`StartStopButton renders a label that reflects a clock that is running 1`] = `
 <button
-  disabled={false}
   onClick={[Function]}
   style={
     Object {
-      "background": "#34495e",
+      "background": "transparent",
       "border": 0,
-      "color": "#ecf0f1",
+      "color": "var(--Concrete)",
       "cursor": "pointer",
       "fontSize": "2rem",
       "height": 50,
       "lineHeight": 1,
+      "minWidth": 50,
       "padding": 0,
-      "width": 50,
     }
   }>
   <svg
@@ -109,24 +132,36 @@ exports[`StartStopButton renders a label that reflects a clock that is running 1
         d="m23.4 8.4h6.6v23.2h-6.6v-23.2z m-13.4 23.2v-23.2h6.6v23.2h-6.6z" />
     </g>
   </svg>
+  <br />
+  <div
+    style={
+      Object {
+        "color": "var(--Concrete)",
+        "fontFamily": "Roboto Mono, monospace",
+        "fontSize": ".8rem",
+        "lineHeight": 1.5,
+        "textTransform": "uppercase",
+      }
+    }>
+    Pause
+  </div>
 </button>
 `;
 
 exports[`StartStopButton renders the component 1`] = `
 <button
-  disabled={false}
   onClick={[Function]}
   style={
     Object {
       "background": "transparent",
       "border": 0,
-      "color": "#bdc3c7",
+      "color": "var(--Silver)",
       "cursor": "pointer",
       "fontSize": "2rem",
       "height": 50,
       "lineHeight": 1,
+      "minWidth": 50,
       "padding": 0,
-      "width": 50,
     }
   }>
   <svg
@@ -147,5 +182,18 @@ exports[`StartStopButton renders the component 1`] = `
         d="m13.4 8.4l18.2 11.6-18.2 11.6v-23.2z" />
     </g>
   </svg>
+  <br />
+  <div
+    style={
+      Object {
+        "color": "var(--Silver)",
+        "fontFamily": "Roboto Mono, monospace",
+        "fontSize": ".8rem",
+        "lineHeight": 1.5,
+        "textTransform": "uppercase",
+      }
+    }>
+    Start
+  </div>
 </button>
 `;

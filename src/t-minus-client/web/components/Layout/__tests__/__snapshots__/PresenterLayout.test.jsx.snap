@@ -25,10 +25,19 @@ exports[`PresenterLayout renders the component 1`] = `
     <div
       style={
         Object {
-          "background": "#bdc3c7",
-          "height": 50,
+          "background": "var(--Clouds)",
         }
-      } />
+      }>
+      <div
+        style={
+          Object {
+            "background": "var(--Clouds)",
+            "height": 50,
+            "whiteSpace": "nowrap",
+            "width": "50%",
+          }
+        } />
+    </div>
   </div>
 </div>
 `;

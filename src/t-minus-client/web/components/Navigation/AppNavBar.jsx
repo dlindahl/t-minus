@@ -1,12 +1,12 @@
-import { assign, isString } from 'lodash'
+import { isString } from 'lodash'
 import { Children, PropTypes } from 'react'
-import Colors from '../../../shared/constants/Colors'
 
 const baseStyles = {
   filler: {
     flex: 1
   },
   item: {
+    flex: 1,
     textAlign: 'center'
   },
   items: {
@@ -17,40 +17,29 @@ const baseStyles = {
     padding: 0
   },
   root: {
-    background: Colors.MidnightBlue
+    height: 100
   }
-}
-const Dimensions = {
-  column: 'width',
-  row: 'height'
 }
 const NonBreakingSpace = 160
 const StringStart = 0
 
 function itemize (node) {
+  let style = baseStyles.item
   if (isString(node) && node.charCodeAt(StringStart) === NonBreakingSpace) {
-    return <li style={baseStyles.filler}>{node}</li>
+    style = baseStyles.filler
   }
-  return <li style={baseStyles.item}>{node}</li>
+  return (
+    <li style={style}>
+      {node}
+    </li>
+  )
 }
 
 const AppNavBar = (props) => {
   const items = Children.map(props.children, itemize)
-  const rootStyles =
-    assign(
-      {},
-      baseStyles.root,
-      { [Dimensions[props.direction]]: props.size }
-    )
-  const itemsStyles =
-    assign(
-      {},
-      baseStyles.items,
-      { flexDirection: props.direction }
-    )
   return (
-    <nav style={rootStyles}>
-      <ul style={itemsStyles}>
+    <nav style={baseStyles.root}>
+      <ul style={baseStyles.items}>
         {items}
       </ul>
     </nav>
@@ -58,13 +47,7 @@ const AppNavBar = (props) => {
 }
 
 AppNavBar.propTypes = {
-  children: PropTypes.node,
-  direction: PropTypes.oneOf(['column', 'row']),
-  size: PropTypes.number
-}
-AppNavBar.defaultProps = {
-  direction: 'row',
-  size: 50
+  children: PropTypes.node
 }
 
 export default AppNavBar

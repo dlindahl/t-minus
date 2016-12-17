@@ -35,8 +35,8 @@ const Teleprompter = (props) => {
       baseStyles.root,
       baseStyles.empty[prompterText === ''],
       {
-        background: props.secondaryColor,
-        color: props.primaryColor
+        background: props.backgroundPrimaryColor,
+        color: props.textPrimaryColor
       }
     )
   return (
@@ -49,9 +49,9 @@ const Teleprompter = (props) => {
 }
 
 Teleprompter.propTypes = {
-  primaryColor: PropTypes.string,
-  secondaryColor: PropTypes.string,
-  text: PropTypes.string
+  backgroundPrimaryColor: PropTypes.string,
+  text: PropTypes.string,
+  textPrimaryColor: PropTypes.string
 }
 Teleprompter.defaultProps = {
   text: ''

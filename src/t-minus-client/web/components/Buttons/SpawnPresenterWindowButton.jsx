@@ -28,7 +28,7 @@ export default class SpawnPresenterWindowButton extends Component {
   }
   render () {
     return (
-      <AppNavButton disabled={this.props.disabled} onClick={this.handleClick}>
+      <AppNavButton disabled={this.props.disabled} label="Present" onClick={this.handleClick}>
         <OpenInNew/>
       </AppNavButton>
     )

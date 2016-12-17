@@ -34,7 +34,7 @@ const TimeDisplay = (props) => {
     assign(
       {},
       baseStyles.microseconds,
-      { color: props.tertiaryColor }
+      { color: props.textTertiaryColor }
     )
   const prefixStyle =
     assign(
@@ -47,8 +47,8 @@ const TimeDisplay = (props) => {
       {},
       baseStyles.root,
       {
-        background: props.secondaryColor,
-        color: props.primaryColor
+        background: props.backgroundPrimaryColor,
+        color: props.textPrimaryColor
       }
     )
   return (
@@ -77,14 +77,14 @@ const TimeDisplay = (props) => {
 }
 
 TimeDisplay.propTypes = {
+  backgroundPrimaryColor: PropTypes.string,
   hasTimerElapsed: PropTypes.bool,
   hours: PropTypes.string,
   microseconds: PropTypes.string,
   minutes: PropTypes.string,
-  primaryColor: PropTypes.string,
-  secondaryColor: PropTypes.string,
   seconds: PropTypes.string,
-  tertiaryColor: PropTypes.string
+  textPrimaryColor: PropTypes.string,
+  textTertiaryColor: PropTypes.string
 }
 TimeDisplay.defaultProps = {
   hasTimerElapsed: false,

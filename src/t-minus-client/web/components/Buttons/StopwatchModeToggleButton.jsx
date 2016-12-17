@@ -27,7 +27,7 @@ export default class StopwatchModeToggleButton extends Component {
   }
   render () {
     return (
-      <AppNavButton active={this.props.active} onClick={this.handleClick}>
+      <AppNavButton active={this.props.active} label="Stopwatch" onClick={this.handleClick}>
         <Schedule/>
       </AppNavButton>
     )

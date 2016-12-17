@@ -6,18 +6,21 @@ import StartStopButton from '../StartStopButton'
 
 const STATES = {
   default: {
-    clock: emptyObj
+    clock: emptyObj,
+    display: emptyObj
   },
   running: {
     clock: {
       running: true,
       startedAt: Date.now()
-    }
+    },
+    display: emptyObj
   },
   started: {
     clock: {
       startedAt: Date.now()
-    }
+    },
+    display: emptyObj
   }
 }
 const store = configureStore()
@@ -25,7 +28,9 @@ const store = configureStore()
 describe('StartStopButton', () => {
   it('renders the component', () => {
     const component = renderer.create(
-      <StartStopButton store={store(STATES.default)}/>
+      <Provider store={store(STATES.default)}>
+        <StartStopButton/>
+      </Provider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -33,7 +38,9 @@ describe('StartStopButton', () => {
 
   it('is active when the clock that is running', () => {
     const component = renderer.create(
-      <StartStopButton store={store(STATES.running)}/>
+      <Provider store={store(STATES.running)}>
+        <StartStopButton/>
+      </Provider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -41,7 +48,9 @@ describe('StartStopButton', () => {
 
   it('renders a label that reflects a clock that has started', () => {
     const component = renderer.create(
-      <StartStopButton store={store(STATES.started)}/>
+      <Provider store={store(STATES.started)}>
+        <StartStopButton/>
+      </Provider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -49,7 +58,9 @@ describe('StartStopButton', () => {
 
   it('renders a label that reflects a clock that is running', () => {
     const component = renderer.create(
-      <StartStopButton store={store(STATES.running)}/>
+      <Provider store={store(STATES.running)}>
+        <StartStopButton/>
+      </Provider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -58,10 +69,8 @@ describe('StartStopButton', () => {
   it('toggles the clock when clicked', () => {
     const toggleClock = jest.fn()
     const component = renderer.create(
-      <Provider store={store()}>
-        <StartStopButton.WrappedComponent
-          toggleClock={toggleClock}
-        />
+      <Provider store={store(STATES.default)}>
+        <StartStopButton.WrappedComponent toggleClock={toggleClock}/>
       </Provider>
     )
     const tree = component.toJSON()

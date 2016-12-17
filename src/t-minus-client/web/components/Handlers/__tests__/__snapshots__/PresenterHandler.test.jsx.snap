@@ -26,8 +26,8 @@ exports[`PresenterHandler renders the component 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "background": "#bdc3c7",
-            "color": "#2c3e50",
+            "background": "var(--Clouds)",
+            "color": "var(--MidnightBlue)",
             "display": "flex",
             "flex": 1,
             "flexDirection": "column",
@@ -66,7 +66,7 @@ exports[`PresenterHandler renders the component 1`] = `
             data-test-id="microseconds"
             style={
               Object {
-                "color": "#95a5a6",
+                "color": "var(--Silver)",
                 "fontSize": "5vw",
               }
             }>
@@ -79,8 +79,8 @@ exports[`PresenterHandler renders the component 1`] = `
         style={
           Object {
             "alignItems": "center",
-            "background": "#bdc3c7",
-            "color": "#2c3e50",
+            "background": "var(--Clouds)",
+            "color": "var(--MidnightBlue)",
             "display": "flex",
             "flex": 1,
             "fontFamily": "Roboto Mono, monospace",
@@ -104,10 +104,19 @@ exports[`PresenterHandler renders the component 1`] = `
     <div
       style={
         Object {
-          "background": "#bdc3c7",
-          "height": 50,
+          "background": "var(--Clouds)",
         }
-      } />
+      }>
+      <div
+        style={
+          Object {
+            "background": "var(--Clouds)",
+            "height": 50,
+            "whiteSpace": "nowrap",
+            "width": "0%",
+          }
+        } />
+    </div>
   </div>
 </div>
 `;

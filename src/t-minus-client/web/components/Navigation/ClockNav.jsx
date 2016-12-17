@@ -1,18 +1,16 @@
 import AppNavBar from './AppNavBar'
-import Colors from '../../../shared/constants/Colors'
 import ResetButton from '../Buttons/ResetButton'
+import SpawnPresenterWindowButton from '../Buttons/SpawnPresenterWindowButton'
 import StartStopButton from '../Buttons/StartStopButton'
 import StopwatchModeToggleButton from '../Buttons/StopwatchModeToggleButton'
 import TimerModeToggleButton from '../Buttons/TimerModeToggleButton'
-import Title from 'react-icons/lib/md/title'
 
 const ClockNav = (props) => (
-  <AppNavBar direction="column">
-    <Title color={Colors.Clouds} size={50}/>
+  <AppNavBar>
     <TimerModeToggleButton/>
     <StopwatchModeToggleButton/>
     <StartStopButton/>
-    &nbsp;
+    <SpawnPresenterWindowButton/>
     <ResetButton/>
   </AppNavBar>
 )

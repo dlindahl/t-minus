@@ -91,6 +91,10 @@ const config = {
       loaders: defineEnvSpecific(JSLoaders, env.get('env')),
       test: /\.jsx?$/
     }, {
+      include: env.get('sourcePath'),
+      loader: 'style!css!sass',
+      test: /\.scss$/
+    }, {
       loader: 'expose?React',
       test: require.resolve('react')
     }]
@@ -103,7 +107,7 @@ const config = {
   plugins: defineEnvSpecific(Plugins, env.get('env')),
   resolve: {
     alias: {},
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.scss']
   }
 }
 

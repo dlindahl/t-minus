@@ -27,17 +27,21 @@ export default class StartStopButton extends Component {
     this.props.toggleClock()
   }
   render () {
+    let icon
     let label
     if (!this.props.started) {
-      label = <PlayArrow data-test-id="PlayArrow"/>
+      icon = <PlayArrow data-test-id="PlayArrow"/>
+      label = 'Start'
     } else if (this.props.running) {
-      label = <Pause data-test-id="Pause"/>
+      icon = <Pause data-test-id="Pause"/>
+      label = 'Pause'
     } else {
-      label = <PlayArrow data-test-id="PlayArrow"/>
+      icon = <PlayArrow data-test-id="PlayArrow"/>
+      label = 'Start'
     }
     return (
-      <AppNavButton active={this.props.running} onClick={this.handleClick}>
-        {label}
+      <AppNavButton active={this.props.running} label={label} onClick={this.handleClick}>
+        {icon}
       </AppNavButton>
     )
   }

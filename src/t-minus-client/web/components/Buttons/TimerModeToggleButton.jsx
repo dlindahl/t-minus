@@ -27,7 +27,7 @@ export default class TimerModeToggleButton extends Component {
   }
   render () {
     return (
-      <AppNavButton active={this.props.active} onClick={this.handleClick}>
+      <AppNavButton active={this.props.active} label="Timer" onClick={this.handleClick}>
         <AccessAlarm/>
       </AppNavButton>
     )

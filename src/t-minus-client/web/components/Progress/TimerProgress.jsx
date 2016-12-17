@@ -26,45 +26,39 @@ function getState (state) {
 }
 
 const TimerProgress = (props) => {
+  let progressBackgroundColor = props.backgroundSecondaryColor
   if (props.mode !== ClockActions.CLOCK_MODE_TIMER) {
-    return (
-      <div
-        style={
-          assign(
-            {},
-            baseStyles.empty,
-            { background: props.secondaryColor }
-          )
-        }
-      />
-    )
+    progressBackgroundColor = props.backgroundPrimaryColor
   }
-  const containerStyle = { background: props.secondaryColor }
+  const containerStyle = {
+    background: props.backgroundPrimaryColor
+  }
   const progressStyle =
     assign(
       {},
       baseStyles.progress,
       {
-        background: props.tertiaryColor,
+        background: progressBackgroundColor,
         width: `${props.percentComplete * MaxWidthPercentage}%`
       }
     )
   return (
     <div style={containerStyle}>
+      {props.children}
       <div style={progressStyle}/>
     </div>
   )
 }
 
 TimerProgress.propTypes = {
+  backgroundPrimaryColor: PropTypes.string,
+  backgroundSecondaryColor: PropTypes.string,
+  children: PropTypes.node,
   mode: PropTypes.string,
-  percentComplete: PropTypes.number,
-  secondaryColor: PropTypes.string,
-  tertiaryColor: PropTypes.string
+  percentComplete: PropTypes.number
 }
 TimerProgress.defaultProps = {
-  mode: null,
-  percentComplete: 1
+  percentComplete: 0.5
 }
 
 export default withSeverity(connect(getState)(TimerProgress))

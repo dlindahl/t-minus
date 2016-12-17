@@ -5,6 +5,10 @@ import { Provider } from 'react-redux'
 import { render as Render } from 'react-dom'
 import store from '../shared/stores/store'
 
+/* eslint-disable import/no-unassigned-import */
+require('./stylesheets/Colors.scss')
+/* eslint-enable import/no-unassigned-import:off */
+
 const appEl = document.getElementById('app')
 runInitializers(initializers, store)
 Render(

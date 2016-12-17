@@ -1,4 +1,3 @@
-import Colors from '../../../../shared/constants/Colors'
 import ConnectedTeleprompterInput from '../TeleprompterInput'
 import emptyFn from 'empty/function'
 import { mount, shallow } from 'enzyme'
@@ -19,15 +18,6 @@ describe('TeleprompterInput', () => {
     )
     component.find('input').simulate('focus')
     expect(component.state().focus).toBe(true)
-  })
-
-  it('changes the background color when focused', () => {
-    const component = shallow(
-      <TeleprompterInput/>
-    )
-    expect(component.find('input').node.props.style.background).toBe('transparent')
-    component.find('input').simulate('focus')
-    expect(component.find('input').node.props.style.background).toBe(Colors.WetAsphalt)
   })
 
   it('changes state when blurred', () => {
@@ -64,14 +54,6 @@ describe('TeleprompterInput', () => {
     )
     component.find('input').simulate('change', { target: { value: 'TEST' } })
     expect(component.state().value).toBe('TEST')
-  })
-
-  it('adjusts the width of the INPUT when changed', () => {
-    const component = shallow(
-      <TeleprompterInput setTeleprompterValue={emptyFn}/>
-    )
-    component.find('input').simulate('change', { target: { value: 'TEST' } })
-    expect(component.find('input').node.props.style.width).toBe('7ch')
   })
 
   it('sets the teleprompter text when submitted', () => {

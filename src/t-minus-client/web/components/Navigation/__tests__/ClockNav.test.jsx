@@ -6,7 +6,9 @@ import renderer from 'react-test-renderer'
 
 const STATES = {
   default: {
-    clock: emptyObj
+    clock: emptyObj,
+    display: emptyObj,
+    meta: emptyObj
   }
 }
 const store = configureStore()

@@ -3,8 +3,8 @@ import renderer from 'react-test-renderer'
 import TimerSeverity from '../../../shared/actionTypes/TimerSeverityTypes'
 import withSeverity from '../withSeverity'
 
-const SeverityComponent = withSeverity(({ primaryColor, secondaryColor, tertiaryColor }) => (
-  <div primaryColor={primaryColor} secondaryColor={secondaryColor} tertiaryColor={tertiaryColor}/>
+const SeverityComponent = withSeverity(({ backgroundPrimaryColor, backgroundSecondaryColor }) => (
+  <div backgroundPrimaryColor={backgroundPrimaryColor} backgroundSecondaryColor={backgroundSecondaryColor}/>
 ))
 const states = {
   [TimerSeverity.TIMER_SEVERITY_CALM]: {

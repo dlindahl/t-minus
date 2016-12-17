@@ -7,12 +7,14 @@ import StopwatchModeToggleButton from '../StopwatchModeToggleButton'
 
 const STATES = {
   default: {
-    clock: emptyObj
+    clock: emptyObj,
+    display: emptyObj
   },
   stopwatchMode: {
     clock: {
       mode: ClockActions.CLOCK_MODE_STOPWATCH
-    }
+    },
+    display: emptyObj
   }
 }
 const store = configureStore()
@@ -20,7 +22,9 @@ const store = configureStore()
 describe('StopwatchModeToggleButton', () => {
   it('renders the component', () => {
     const component = renderer.create(
-      <StopwatchModeToggleButton store={store(STATES.default)}/>
+      <Provider store={store(STATES.default)}>
+        <StopwatchModeToggleButton/>
+      </Provider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -28,7 +32,9 @@ describe('StopwatchModeToggleButton', () => {
 
   it('renders an active component when the clock is in stopwatch mode', () => {
     const component = renderer.create(
-      <StopwatchModeToggleButton store={store(STATES.stopwatchMode)}/>
+      <Provider store={store(STATES.stopwatchMode)}>
+        <StopwatchModeToggleButton/>
+      </Provider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -37,7 +43,7 @@ describe('StopwatchModeToggleButton', () => {
   it('enables stopwatch mode when clicked', () => {
     const stopwatchMode = jest.fn()
     const component = renderer.create(
-      <Provider store={store()}>
+      <Provider store={store(STATES.default)}>
         <StopwatchModeToggleButton.WrappedComponent
           stopwatchMode={stopwatchMode}
         />

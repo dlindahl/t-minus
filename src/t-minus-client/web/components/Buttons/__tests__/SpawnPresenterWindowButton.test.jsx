@@ -6,6 +6,7 @@ import SpawnPresenterWindowButton from '../SpawnPresenterWindowButton'
 
 const STATES = {
   default: {
+    display: emptyObj,
     meta: emptyObj
   }
 }
@@ -14,7 +15,9 @@ const store = configureStore()
 describe('SpawnPresenterWindowButton', () => {
   it('renders the component', () => {
     const component = renderer.create(
-      <SpawnPresenterWindowButton store={store(STATES.default)}/>
+      <Provider store={store(STATES.default)}>
+        <SpawnPresenterWindowButton/>
+      </Provider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
@@ -23,7 +26,7 @@ describe('SpawnPresenterWindowButton', () => {
   it('spawns the presenter window when clicked', () => {
     const spawnPresenterWindow = jest.fn()
     const component = renderer.create(
-      <Provider store={store()}>
+      <Provider store={store(STATES.default)}>
         <SpawnPresenterWindowButton.WrappedComponent
           spawnPresenterWindow={spawnPresenterWindow}
         />
@@ -37,7 +40,7 @@ describe('SpawnPresenterWindowButton', () => {
   it('does not spawn the presenter window when disabled and clicked', () => {
     const spawnPresenterWindow = jest.fn()
     const component = renderer.create(
-      <Provider store={store()}>
+      <Provider store={store(STATES.default)}>
         <SpawnPresenterWindowButton.WrappedComponent
           disabled
           spawnPresenterWindow={spawnPresenterWindow}
