@@ -17,7 +17,7 @@ describe('clockInitializer', () => {
     initializer(store)
     const actions = store.getActions()
     expect(actions[0].type).toBe('CLOCK_TIMER_CHANGED')
-    expect(actions[0].payload.timerValue).toBe(3 * 60 * 1000)
+    expect(actions[0].payload.timerValue).toBe(5 * 60 * 1000)
   })
 
   it('initializes the app in STOPWATCH mode', () => {
